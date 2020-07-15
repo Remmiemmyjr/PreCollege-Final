@@ -10,11 +10,11 @@ public class PlayerController : MonoBehaviour
     public float speed = 2f;
 
     //Shooting Variables
+    [SerializeField] //Allows us to assign atttributes in the inspector
     public GameObject Bullet;
-    public float bulletModifier = 25f;
 
-    //saved transform that allows us to shoot/instantiate bullets from a particular location/offset
-    public Transform bulletOrigin; 
+    [SerializeField] //Allows us to assign atttributes in the inspector
+    public Transform bulletOrigin; //saved transform that allows us to shoot/instantiate bullets from a particular location/offset
 
     private Vector3 target;
 
@@ -46,14 +46,14 @@ public class PlayerController : MonoBehaviour
 
         GameObject firedBullet = Instantiate(Bullet, bulletOrigin.position, bulletOrigin.rotation);
         firedBullet.transform.Rotate(bulletDirection);
-        firedBullet.GetComponent<Rigidbody2D>().velocity = bulletDirection.normalized * bulletModifier;
+        firedBullet.GetComponent<Rigidbody2D>().velocity = bulletDirection.normalized * 10f;
 
-        //Debug.Log($"{target}, {bulletDirection}, {bulletDirection.normalized * 10f}");
+        Debug.Log($"{target}, {bulletDirection}, {bulletDirection.normalized * 10f}");
     }
 
     void Movement()
     {
-        //Changed the transform.position to a velocity so we can acknowledge colliders , transform disreguards any colliders 
+        //TO DO: Change the transform.position to a velocity so we can acknowledge colliders , transform disreguards any colliders 
         Vector3 pos = new Vector3();
 
         if (Input.GetKey(KeyCode.W))
@@ -73,6 +73,7 @@ public class PlayerController : MonoBehaviour
             pos.x -= 1;
         }
         //Uses normalized vector to maintain constant speed in all directions
+        //transform.position += pos.normalized * speed * Time.deltaTime;
         GetComponent<Rigidbody2D>().velocity = pos.normalized * speed;
     }
 }
