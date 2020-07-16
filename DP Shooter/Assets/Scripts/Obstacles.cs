@@ -14,8 +14,8 @@ public class Obstacles : MonoBehaviour
 
     [Header("Useless")]
     private Color debugCollisionColor = Color.red;
-    public string WARNING = ("EVERYTHING BELOW IS USELESS");
-    public LayerMask groundLayer;
+    //public string WARNING = ("EVERYTHING BELOW IS USELESS");
+    private LayerMask groundLayer;
     
     //Collision Types
     internal bool onBottom;
@@ -25,14 +25,14 @@ public class Obstacles : MonoBehaviour
     internal bool leftWall;
 
     //Control Collision (Booleans to turn them on/off)
-    public bool usingBottom = true;
-    public bool usingTop = true;
-    public bool usingRight = true;
-    public bool usingLeft = true;
+    internal bool usingBottom = true;
+    internal bool usingTop = true;
+    internal bool usingRight = true;
+    internal bool usingLeft = true;
 
     //Collision Values
-    public float collisionRadius = 0.25f;
-    public Vector2 bottomOffset, topOffset, rightOffset, leftOffset;
+    private float collisionRadius = 0.25f;
+    private Vector2 bottomOffset, topOffset, rightOffset, leftOffset;
 
     private void Start()
     {
@@ -41,78 +41,44 @@ public class Obstacles : MonoBehaviour
 
     private void Update()
     {
-        UsingCollision();
+       
     }
-
-    void UsingCollision()
-    {
-        if (usingBottom)
-        {
-            onBottom = Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset, collisionRadius, groundLayer);
-        }
-
-        if (usingTop)
-        {
-            onTop = Physics2D.OverlapCircle((Vector2)transform.position + topOffset, collisionRadius, groundLayer);
-        }
-
-        if (usingRight)
-        {
-            rightWall = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer);
-        }
-
-        if (usingLeft)
-        {
-            leftWall = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);
-        }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-
-        var positions = new Vector2[] { bottomOffset, topOffset, rightOffset, leftOffset };
-        if (usingBottom)
-        {
-            Gizmos.DrawWireSphere((Vector2)transform.position + bottomOffset, collisionRadius);
-        }
-        if (usingTop)
-        {
-            Gizmos.DrawWireSphere((Vector2)transform.position + topOffset, collisionRadius);
-        }
-        if (usingRight)
-        {
-            Gizmos.DrawWireSphere((Vector2)transform.position + rightOffset, collisionRadius);
-        }
-        if (usingLeft)
-        {
-            Gizmos.DrawWireSphere((Vector2)transform.position + leftOffset, collisionRadius);
-        }
-    }
-
+    
     private void OnTriggerEnter2D(Collider2D trigger)
     {
         if (trigger.gameObject.tag == "Bullet")
         {
             switch (classification)
             {
-                case ObjectType.Destructable: //Destroys block when hit with bullet
-                    //Run Animation
-                    Destroy(this.gameObject);
-                    break;
-                case ObjectType.Indestructable:
-                    break;
-                case ObjectType.Moveable:
+                case ObjectType.Destructable:
+                    //When set to this, the box is destroyed by the bullet
                     {
-                        //Based off the bullets velocity, the box is moved
+                        //Run Animation
+                        Destroy(this.gameObject);
+                        break;
+                    }
+                    
+
+                case ObjectType.Indestructable:
+                    //When set to this, nothing happens to the box when interacted with
+                    {
+                        break;
+                    }
+                    
+
+                case ObjectType.Moveable:
+                    //When set to this, the box's position is transformed a particular distance based off the bullets velocity
+                    {
                         var bulletVelocity = trigger.gameObject.GetComponent<Rigidbody2D>().velocity;
-                        Debug.Log($"{bulletVelocity}");
                         StartCoroutine(MoveOnHit(bulletVelocity));
+                        //BoxCollider2D triggerPlate = gameObject.AddComponent(typeof(BoxCollider2D)) as BoxCollider2D;
+                        //triggerPlate.isTrigger = true;
+                        Debug.Log($"{bulletVelocity}");
                         break;
                     }
 
                 case ObjectType.Teleport:
-                    //Teleport player to the object
+                    //When set to this, the player will teleport to a calculated offset based off which side the box was hit on by a bullet
                     {
                         //Based off the bullets velocity, the player is teleported with an offset
                         var localBulletDir = trigger.gameObject.GetComponent<Rigidbody2D>().velocity.normalized;
@@ -135,7 +101,7 @@ public class Obstacles : MonoBehaviour
         var moveDistance = bulletVelocity / boxDistanceModifier;
         for (int i = 0; i < 10; i++)
         {
-
+            //TODO: CHANGE TRANSFORM!!! Its currently ignoring collision and moves past the walls!!! 
             //Decreases movement gradually
             moveDistance = moveDistance * 0.85f;
             transform.Translate(moveDistance);

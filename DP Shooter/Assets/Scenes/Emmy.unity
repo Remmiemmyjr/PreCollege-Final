@@ -477,7 +477,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54230aa689abee146a1bdbf9e9fa6677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3.5
+  playerSpeed: 3.5
+  shootSpeed: 10
   Bullet: {fileID: 7294722043248330415, guid: 9393c883fa9e7bb44b671f7d0dd949e1, type: 3}
   bulletOrigin: {fileID: 2091652750}
 --- !u!212 &420670151
@@ -722,19 +723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classification: 0
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  usingBottom: 0
-  usingTop: 0
-  usingRight: 0
-  usingLeft: 0
-  collisionRadius: 0.25
-  moveValue: 45
-  bottomOffset: {x: 0, y: 0}
-  topOffset: {x: 0, y: 0}
-  rightOffset: {x: 0, y: 0}
-  leftOffset: {x: 0, y: 0}
+  boxDistanceModifier: 75
 --- !u!61 &675029047
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -952,19 +941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classification: 2
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  usingBottom: 0
-  usingTop: 0
-  usingRight: 0
-  usingLeft: 0
-  collisionRadius: 0.25
-  moveValue: 45
-  bottomOffset: {x: 0, y: 0}
-  topOffset: {x: 0, y: 0}
-  rightOffset: {x: 0, y: 0}
-  leftOffset: {x: 0, y: 0}
+  boxDistanceModifier: 75
 --- !u!61 &949674880
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1066,6 +1043,7 @@ GameObject:
   - component: {fileID: 1077288600}
   - component: {fileID: 1077288599}
   - component: {fileID: 1077288598}
+  - component: {fileID: 1077288601}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1138,6 +1116,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1077288601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077288597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3183ddfb1759459c9604e761e708d57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1168378616
 GameObject:
   m_ObjectHideFlags: 0
@@ -1386,19 +1376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classification: 3
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  usingBottom: 0
-  usingTop: 0
-  usingRight: 0
-  usingLeft: 0
-  collisionRadius: 0.25
-  moveValue: 45
-  bottomOffset: {x: 0, y: 0}
-  topOffset: {x: 0, y: 0}
-  rightOffset: {x: 0, y: 0}
-  leftOffset: {x: 0, y: 0}
+  boxDistanceModifier: 75
 --- !u!61 &1818032857
 BoxCollider2D:
   m_ObjectHideFlags: 0
