@@ -4,19 +4,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    internal static GameObject Player;
+    internal static GameObject Player;     //Reference to the player 
 
-    //Movement Speed Variable
-    public float speed = 2f;
+    [Header("Player Settings")]
+    public float playerSpeed = 3.5f;
 
-    //Shooting Variables
-    [SerializeField] //Allows us to assign atttributes in the inspector
+    [Header("Bullet Settings")]
+    public float shootSpeed = 10f;
     public GameObject Bullet;
+    public Transform bulletOrigin;          //Saved transform that allows us to shoot/instantiate bullets from a particular location/offset
+    private Vector3 target;                 //Position of the mouse
 
-    [SerializeField] //Allows us to assign atttributes in the inspector
-    public Transform bulletOrigin; //saved transform that allows us to shoot/instantiate bullets from a particular location/offset
-
-    private Vector3 target;
 
     void Start()
     {
@@ -26,6 +24,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        //Gets the mouse's position
         target = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
         target.z = 0f;
 
@@ -37,7 +36,7 @@ public class PlayerController : MonoBehaviour
         Movement();
     }
 
-    //instantiates a new bullet (clones) and fires it in the direction of the target point (where the mouse clicked) in a straight line
+    //Instantiates (clones) a new bullet and fires it in the direction of the target point (where the mouse clicked) in a straight line
     void Shoot()
     {
         Vector3 bulletDirection;
@@ -46,14 +45,14 @@ public class PlayerController : MonoBehaviour
 
         GameObject firedBullet = Instantiate(Bullet, bulletOrigin.position, bulletOrigin.rotation);
         firedBullet.transform.Rotate(bulletDirection);
-        firedBullet.GetComponent<Rigidbody2D>().velocity = bulletDirection.normalized * 10f;
+        firedBullet.GetComponent<Rigidbody2D>().velocity = bulletDirection.normalized * shootSpeed;
 
-        Debug.Log($"{target}, {bulletDirection}, {bulletDirection.normalized * 10f}");
+        //Debug.Log($"{target}, {bulletDirection}, {bulletDirection.normalized * shootSpeed}");
     }
 
     void Movement()
     {
-        //TO DO: Change the transform.position to a velocity so we can acknowledge colliders , transform disreguards any colliders 
+        //Changed the transform.position to a velocity so we can acknowledge colliders , transform disreguards any colliders 
         Vector3 pos = new Vector3();
 
         if (Input.GetKey(KeyCode.W))
@@ -73,7 +72,6 @@ public class PlayerController : MonoBehaviour
             pos.x -= 1;
         }
         //Uses normalized vector to maintain constant speed in all directions
-        //transform.position += pos.normalized * speed * Time.deltaTime;
-        GetComponent<Rigidbody2D>().velocity = pos.normalized * speed;
+        GetComponent<Rigidbody2D>().velocity = pos.normalized * playerSpeed;
     }
 }

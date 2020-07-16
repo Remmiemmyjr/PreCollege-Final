@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class Obstacles : MonoBehaviour
 {
-    //Object Classification
+    
     public enum ObjectType { Destructable, Indestructable, Moveable, Teleport }
+    [Header("Object Types")]
+    [Tooltip("Use this to declare what type of obstacle this asset is")]
     public ObjectType classification;
+    [Tooltip("The lower the number, the farther the moveable box will travel when hit")]
+    public float boxDistanceModifier = 75f;
 
-    //Gizmo Properties
+    [Header("Useless")]
     private Color debugCollisionColor = Color.red;
+    public string WARNING = ("EVERYTHING BELOW IS USELESS");
     public LayerMask groundLayer;
-
+    
     //Collision Types
     internal bool onBottom;
     internal bool onTop;
@@ -27,7 +32,6 @@ public class Obstacles : MonoBehaviour
 
     //Collision Values
     public float collisionRadius = 0.25f;
-    public float moveValue = 75f;
     public Vector2 bottomOffset, topOffset, rightOffset, leftOffset;
 
     private void Start()
@@ -128,7 +132,7 @@ public class Obstacles : MonoBehaviour
     IEnumerator MoveOnHit(Vector2 bulletVelocity)
     {
         //Division causes it to increase its distance
-        var moveDistance = bulletVelocity / moveValue;
+        var moveDistance = bulletVelocity / boxDistanceModifier;
         for (int i = 0; i < 10; i++)
         {
 
