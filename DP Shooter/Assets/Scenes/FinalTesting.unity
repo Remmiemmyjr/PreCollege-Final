@@ -516,6 +516,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classification: 2
+  boxDistanceModifier: 75
+  WARNING: EVERYTHING BELOW IS USELESS
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -524,7 +526,6 @@ MonoBehaviour:
   usingRight: 0
   usingLeft: 0
   collisionRadius: 0.25
-  moveValue: 45
   bottomOffset: {x: 0, y: 0}
   topOffset: {x: 0, y: 0}
   rightOffset: {x: 0, y: 0}
@@ -898,7 +899,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54230aa689abee146a1bdbf9e9fa6677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3.5
+  playerSpeed: 3.5
+  shootSpeed: 10
   Bullet: {fileID: 2499639164798361045, guid: 9393c883fa9e7bb44b671f7d0dd949e1, type: 3}
   bulletOrigin: {fileID: 1474756645}
 --- !u!212 &1466567555
@@ -1065,6 +1067,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classification: 3
+  boxDistanceModifier: 75
+  WARNING: EVERYTHING BELOW IS USELESS
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -1073,7 +1077,6 @@ MonoBehaviour:
   usingRight: 0
   usingLeft: 0
   collisionRadius: 0.25
-  moveValue: 45
   bottomOffset: {x: 0, y: 0}
   topOffset: {x: 0, y: 0}
   rightOffset: {x: 0, y: 0}
@@ -1200,6 +1203,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classification: 0
+  boxDistanceModifier: 75
+  WARNING: EVERYTHING BELOW IS USELESS
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -1208,7 +1213,6 @@ MonoBehaviour:
   usingRight: 0
   usingLeft: 0
   collisionRadius: 0.25
-  moveValue: 45
   bottomOffset: {x: 0, y: 0}
   topOffset: {x: 0, y: 0}
   rightOffset: {x: 0, y: 0}
