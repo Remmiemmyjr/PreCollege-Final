@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trapdoor : MonoBehaviour
+public class PressurePlate : MonoBehaviour
 {
+    public GameObject Door;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,25 +20,31 @@ public class Trapdoor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D trigger)
     {
-        if(trigger.gameObject.tag == "box")
+        if(trigger.gameObject.tag == "MoveBox")
         {
+            Debug.Log("Door Open");
             OpenDoor();
         }
         
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D trigger)
     {
-        CloseDoor();
+        if (trigger.gameObject.tag == "MoveBox")
+        {
+            Debug.Log("Door Closed");
+            CloseDoor();
+        }
     }
 
     void OpenDoor()
     {
-
+        //Play Animation
+        Door.SetActive(false);
     }
 
     void CloseDoor()
     {
-
+        Door.SetActive(true);
     }
 }

@@ -36,7 +36,11 @@ public class Obstacles : MonoBehaviour
 
     private void Start()
     {
-
+        if(classification == ObjectType.Moveable)
+        {
+            gameObject.tag = "MoveBox";
+        }
+        
     }
 
     private void Update()
@@ -108,4 +112,5 @@ public class Obstacles : MonoBehaviour
             yield return new WaitForSeconds(.05f);
         }
     }
+    
 }
