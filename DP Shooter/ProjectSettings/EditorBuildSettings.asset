@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Van.unity
     guid: 2c226ac66bba4e143bdcccc97a567541
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 3a53ff95b213f40499f6c1668684319a
   m_configObjects: {}
