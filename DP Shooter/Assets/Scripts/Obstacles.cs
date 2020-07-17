@@ -57,7 +57,7 @@ public class Obstacles : MonoBehaviour
             ContactPoint2D[] colContacts = new ContactPoint2D[collision.contactCount];
             collision.GetContacts(colContacts);
             //Gets the direction of the first bullet to come in contact with it 
-            
+
             //Normal impulse gets the force of the hit from the first bullet (treated similarly to speed), and is multiplied by the direction to get the velocity
             Vector2 impactVelocity = colContacts[0].relativeVelocity;
             Vector2 impactDirection = impactVelocity.normalized;
@@ -73,14 +73,14 @@ public class Obstacles : MonoBehaviour
                         Destroy(this.gameObject);
                         break;
                     }
-                    
+
 
                 case ObjectType.Indestructable:
                     //When set to this, nothing happens to the box when interacted with
                     {
                         break;
                     }
-                    
+
 
                 case ObjectType.Moveable:
                     //When set to this, the box's position is transformed a particular distance based off the bullets velocity
@@ -111,7 +111,7 @@ public class Obstacles : MonoBehaviour
         {
             Rigidbody2D moveRB = gameObject.GetComponent<Rigidbody2D>();
             moveRB.velocity = new Vector2(0, 0);
-
+            moveRB.bodyType = RigidbodyType2D.Static;
             Debug.Log($"Collided with {collision.gameObject.name}");
         }
     }
@@ -121,11 +121,12 @@ public class Obstacles : MonoBehaviour
     IEnumerator MoveOnHit(Vector2 bulletVelocity)
     {
         Rigidbody2D moveRB = gameObject.GetComponent<Rigidbody2D>();
+        moveRB.bodyType = RigidbodyType2D.Dynamic;
         //Division causes it to increase its distance
         var moveVelocity = bulletVelocity / boxDistanceModifier;
         for (int i = 0; i < 10; i++)
         {
-            //TODO: CHANGE TRANSFORM!!! Its currently ignoring collision and moves past the walls!!! 
+            //FIXED: CHANGE TRANSFORM!!! Its currently ignoring collision and moves past the walls!!! 
             //Decreases movement gradually
             moveVelocity = moveVelocity * 0.85f;
             moveRB.velocity = moveVelocity;
