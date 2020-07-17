@@ -22,7 +22,7 @@ public class PressurePlate : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D trigger)
     {
-        if(trigger.gameObject.tag == "MoveBox")
+        if(trigger.gameObject.tag == "MoveBox" || trigger.gameObject.tag == "Player")
         {
             Debug.Log("Door Open");
             OpenDoor();
@@ -32,7 +32,7 @@ public class PressurePlate : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D trigger)
     {
-        if (trigger.gameObject.tag == "MoveBox")
+        if (trigger.gameObject.tag == "MoveBox" || trigger.gameObject.tag == "Player")
         {
             Debug.Log("Door Closed");
             CloseDoor();
