@@ -21,16 +21,16 @@ public class BulletBehavior : MonoBehaviour
     {
         if (collision.gameObject.tag == "Wall")
         {
-            count++;
+            if (count++ >= 1)
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(count >= 1)
-        {
-            Destroy(this.gameObject);
-        }
+  
 
     }
 

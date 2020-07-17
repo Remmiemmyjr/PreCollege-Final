@@ -5,11 +5,13 @@ using UnityEngine;
 public class PressurePlate : MonoBehaviour
 {
     public GameObject Door;
+    Door doorScript;
+    internal bool isPressed;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        doorScript = Door.GetComponent<Door>();
     }
 
     // Update is called once per frame
@@ -40,11 +42,14 @@ public class PressurePlate : MonoBehaviour
     void OpenDoor()
     {
         //Play Animation
-        Door.SetActive(false);
+
+        isPressed = true;
+        doorScript.PressurePlateChanged();
     }
 
     void CloseDoor()
     {
-        Door.SetActive(true);
+        isPressed = false;
+        doorScript.PressurePlateChanged();
     }
 }

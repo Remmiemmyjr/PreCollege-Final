@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
         bulletDirection = target - bulletOrigin.position;
 
         GameObject firedBullet = Instantiate(Bullet, bulletOrigin.position, bulletOrigin.rotation);
-        firedBullet.transform.Rotate(bulletDirection);
+        //firedBullet.transform.Rotate(bulletDirection);
         firedBullet.GetComponent<Rigidbody2D>().velocity = bulletDirection.normalized * shootSpeed;
 
         //Debug.Log($"{target}, {bulletDirection}, {bulletDirection.normalized * shootSpeed}");

@@ -47,11 +47,23 @@ public class Obstacles : MonoBehaviour
     {
        
     }
-    
-    private void OnTriggerEnter2D(Collider2D trigger)
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (trigger.gameObject.tag == "Bullet")
+        Debug.Log($"Number of Contacts {collision.contactCount}");
+        if (collision.gameObject.tag == "Bullet")
         {
+            //Gets a list of contacts (what collided with it)
+            ContactPoint2D[] colContacts = new ContactPoint2D[collision.contactCount];
+            collision.GetContacts(colContacts);
+            //Gets the direction of the first bullet to come in contact with it 
+            
+            //Normal impulse gets the force of the hit from the first bullet (treated similarly to speed), and is multiplied by the direction to get the velocity
+            Vector2 impactVelocity = colContacts[0].relativeVelocity;
+            Vector2 impactDirection = impactVelocity.normalized;
+            Debug.Log($"Impact:{impactDirection}, Velocity: {impactVelocity}");
+
+
             switch (classification)
             {
                 case ObjectType.Destructable:
@@ -73,11 +85,11 @@ public class Obstacles : MonoBehaviour
                 case ObjectType.Moveable:
                     //When set to this, the box's position is transformed a particular distance based off the bullets velocity
                     {
-                        var bulletVelocity = trigger.gameObject.GetComponent<Rigidbody2D>().velocity;
-                        StartCoroutine(MoveOnHit(bulletVelocity));
+                        //var bulletVelocity = collision.gameObject.GetComponent<Rigidbody2D>().velocity;
+                        StartCoroutine(MoveOnHit(impactVelocity));
                         //BoxCollider2D triggerPlate = gameObject.AddComponent(typeof(BoxCollider2D)) as BoxCollider2D;
                         //triggerPlate.isTrigger = true;
-                        Debug.Log($"{bulletVelocity}");
+                        Debug.Log($"{impactVelocity}");
                         break;
                     }
 
@@ -85,15 +97,23 @@ public class Obstacles : MonoBehaviour
                     //When set to this, the player will teleport to a calculated offset based off which side the box was hit on by a bullet
                     {
                         //Based off the bullets velocity, the player is teleported with an offset
-                        var localBulletDir = trigger.gameObject.GetComponent<Rigidbody2D>().velocity.normalized;
-                        var bulletPos = trigger.gameObject.transform.position;
+                        //var localBulletDir = collision.gameObject.GetComponent<Rigidbody2D>().velocity.normalized;
+                        var bulletPos = collision.gameObject.transform.position;
                         //Normalized bullet velocity, subtracting the bullets position by the velocity to create an offset, "localscale" is the size of the player which helps determine how far to offset the player by (radius is 0.5, so we divide by 4 to get it near the box)                                                    
-                        PlayerController.Player.transform.position = bulletPos - (Vector3)localBulletDir * (PlayerController.Player.transform.localScale.magnitude / 4f);
+                        PlayerController.Player.transform.position = bulletPos - (Vector3)impactDirection
+ * (PlayerController.Player.transform.localScale.magnitude / 4f);
                         break;
                     }
             }
 
-            Destroy(trigger.gameObject);
+            Destroy(collision.gameObject);
+        }
+        else
+        {
+            Rigidbody2D moveRB = gameObject.GetComponent<Rigidbody2D>();
+            moveRB.velocity = new Vector2();
+
+            Debug.Log($"Collided with {collision.gameObject.name}");
         }
     }
 
@@ -101,16 +121,19 @@ public class Obstacles : MonoBehaviour
     //Uses bullet velocity to know how far to move it in a given direction. Moves it 1/10th 10 times.
     IEnumerator MoveOnHit(Vector2 bulletVelocity)
     {
+        Rigidbody2D moveRB = gameObject.GetComponent<Rigidbody2D>();
         //Division causes it to increase its distance
-        var moveDistance = bulletVelocity / boxDistanceModifier;
+        var moveVelocity = bulletVelocity / boxDistanceModifier;
         for (int i = 0; i < 10; i++)
         {
             //TODO: CHANGE TRANSFORM!!! Its currently ignoring collision and moves past the walls!!! 
             //Decreases movement gradually
-            moveDistance = moveDistance * 0.85f;
-            transform.Translate(moveDistance);
+            moveVelocity = moveVelocity * 0.85f;
+            moveRB.velocity = moveVelocity;
+            Debug.Log($"Velocity = {moveVelocity}");
             yield return new WaitForSeconds(.05f);
         }
+        moveRB.velocity = new Vector2();
     }
     
 }
