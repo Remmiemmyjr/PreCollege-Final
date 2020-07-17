@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Emmy.unity
+    guid: 630db233fed3aef4db3f90dcf91688d9
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: 3120342c57745fa46afac67f56033ac9
+  - enabled: 1
+    path: Assets/Scenes/Van.unity
+    guid: 2c226ac66bba4e143bdcccc97a567541
   m_configObjects: {}
