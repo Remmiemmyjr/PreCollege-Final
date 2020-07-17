@@ -2428,7 +2428,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Door
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1831966977}
     - target: {fileID: 6034369727130289018, guid: e07875c5f53b7e14393ef84f0312e247,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2973,7 +2973,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pressurePlates:
-  - {fileID: 0}
+  - {fileID: 1400012146}
+  - {fileID: 2045466429}
 --- !u!61 &1831966979
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3552,7 +3553,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Door
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1831966977}
     - target: {fileID: 6034369727130289018, guid: e07875c5f53b7e14393ef84f0312e247,
         type: 3}
       propertyPath: m_LocalPosition.x
