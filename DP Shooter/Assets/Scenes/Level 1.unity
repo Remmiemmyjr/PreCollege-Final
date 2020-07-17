@@ -902,7 +902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 6.5
-  shootSpeed: 15
+  shootSpeed: 20
   Bullet: {fileID: 7294722043248330415, guid: 9393c883fa9e7bb44b671f7d0dd949e1, type: 3}
   bulletOrigin: {fileID: 32135514}
 --- !u!50 &1184400970

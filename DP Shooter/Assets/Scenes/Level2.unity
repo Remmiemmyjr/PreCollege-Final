@@ -784,7 +784,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1133747163}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.52, y: -3.72, z: 0}
+  m_LocalPosition: {x: -4.37, y: -2.94, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 102231816}
@@ -1256,19 +1256,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   classification: 3
   boxDistanceModifier: 75
-  WARNING: EVERYTHING BELOW IS USELESS
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  usingBottom: 1
-  usingTop: 1
-  usingRight: 1
-  usingLeft: 1
-  collisionRadius: 0.25
-  bottomOffset: {x: 0, y: 0}
-  topOffset: {x: 0, y: 0}
-  rightOffset: {x: 0, y: 0}
-  leftOffset: {x: 0, y: 0}
 --- !u!61 &2026639057
 BoxCollider2D:
   m_ObjectHideFlags: 0
