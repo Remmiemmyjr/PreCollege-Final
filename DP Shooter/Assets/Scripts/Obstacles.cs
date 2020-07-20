@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Obstacles : MonoBehaviour
 {
-    
+    Audio aud;
     public enum ObjectType { Destructable, Indestructable, Moveable, Teleport }
     [Header("Object Types")]
     [Tooltip("Use this to declare what type of obstacle this asset is")]
@@ -19,7 +19,9 @@ public class Obstacles : MonoBehaviour
         {
             gameObject.tag = "MoveBox";
         }
-        
+
+        aud = GetComponent<Audio>();
+
     }
 
     private void Update()
@@ -50,6 +52,7 @@ public class Obstacles : MonoBehaviour
                     {
                         //Run Animation
                         Destroy(this.gameObject);
+                        aud.PlayDestroy();
                         break;
                     }
 

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Audio : MonoBehaviour
 {
-    public AudioClip shoot;
-    public AudioClip teleport;
+    //public AudioClip shoot;
+    //public AudioClip teleport;
     public AudioClip destroy;
     //public AudioClip died;
 
@@ -23,17 +23,17 @@ public class Audio : MonoBehaviour
 
     }
 
-    public void PlayShoot()
-    {
-        source.clip = shoot;
-        source.Play();
-    }
+    //public void PlayShoot()
+    //{
+    //    source.clip = shoot;
+    //    source.Play();
+    //}
 
-    public void PlayTeleport()
-    {
-        source.clip = teleport;
-        source.Play();
-    }
+    //public void PlayTeleport()
+    //{
+    //    source.clip = teleport;
+    //    source.Play();
+    //}
 
     public void PlayDestroy()
     {
