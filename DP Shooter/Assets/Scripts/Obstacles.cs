@@ -51,8 +51,8 @@ public class Obstacles : MonoBehaviour
                     //When set to this, the box is destroyed by the bullet
                     {
                         //Run Animation
-                        Destroy(this.gameObject);
                         aud.PlayDestroy();
+                        Destroy(this.gameObject);
                         break;
                     }
 
