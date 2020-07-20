@@ -31,8 +31,8 @@ public class Obstacles : MonoBehaviour
     internal bool usingLeft = true;
 
     //Collision Values
-    private float collisionRadius = 0.25f;
-    private Vector2 bottomOffset, topOffset, rightOffset, leftOffset;
+    //private float collisionRadius = 0.25f;
+    //private Vector2 bottomOffset, topOffset, rightOffset, leftOffset;
 
     private void Start()
     {

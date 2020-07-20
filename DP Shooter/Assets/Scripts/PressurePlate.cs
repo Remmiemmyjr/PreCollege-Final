@@ -6,7 +6,7 @@ public class PressurePlate : MonoBehaviour
 {
     public GameObject Door;
     Door doorScript;
-    internal bool isPressed;
+    public bool isPressed;
 
     // Start is called before the first frame update
     void Start()
