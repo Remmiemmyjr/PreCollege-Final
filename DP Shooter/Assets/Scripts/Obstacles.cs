@@ -11,28 +11,7 @@ public class Obstacles : MonoBehaviour
     public ObjectType classification;
     [Tooltip("The lower the number, the farther the moveable box will travel when hit")]
     public float boxDistanceModifier = 75f;
-
-    [Header("Useless")]
-    private Color debugCollisionColor = Color.red;
-    //public string WARNING = ("EVERYTHING BELOW IS USELESS");
-    private LayerMask groundLayer;
     
-    //Collision Types
-    internal bool onBottom;
-    internal bool onTop;
-    //public bool onWall;
-    internal bool rightWall;
-    internal bool leftWall;
-
-    //Control Collision (Booleans to turn them on/off)
-    internal bool usingBottom = true;
-    internal bool usingTop = true;
-    internal bool usingRight = true;
-    internal bool usingLeft = true;
-
-    //Collision Values
-    //private float collisionRadius = 0.25f;
-    //private Vector2 bottomOffset, topOffset, rightOffset, leftOffset;
 
     private void Start()
     {
