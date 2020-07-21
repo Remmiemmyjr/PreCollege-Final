@@ -5,21 +5,28 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     internal static GameObject Player;     //Reference to the player 
+    public AudioClip shoot;                //Calls the shoot sfx clip
+    AudioSource aud;                       //References the audio source
 
     [Header("Player Settings")]
     public float playerSpeed = 3.5f;
 
     [Header("Bullet Settings")]
     public float shootSpeed = 10f;
+    public float cooldown = 0.5f;
     public GameObject Bullet;
     public Transform bulletOrigin;          //Saved transform that allows us to shoot/instantiate bullets from a particular location/offset
     private Vector3 target;                 //Position of the mouse
+    bool canShoot = true;
+
 
 
     void Start()
     {
         Cursor.visible = false;
         Player = this.gameObject;
+        aud = GetComponent<AudioSource>();
+        aud.clip = shoot;
     }
 
     void Update()
@@ -39,18 +46,32 @@ public class PlayerController : MonoBehaviour
     //Instantiates (clones) a new bullet and fires it in the direction of the target point (where the mouse clicked) in a straight line
     void Shoot()
     {
-        Vector3 bulletDirection;
+        if(canShoot)
+        {
+            Vector3 bulletDirection;
 
-        bulletDirection = target - bulletOrigin.position;
+            bulletDirection = target - bulletOrigin.position;
 
-        GameObject firedBullet = Instantiate(Bullet, bulletOrigin.position, bulletOrigin.rotation);
-        //firedBullet.transform.Rotate(bulletDirection);
-        firedBullet.GetComponent<Rigidbody2D>().velocity = bulletDirection.normalized * shootSpeed;
+            GameObject firedBullet = Instantiate(Bullet, bulletOrigin.position, bulletOrigin.rotation);
+            firedBullet.GetComponent<Rigidbody2D>().velocity = bulletDirection.normalized * shootSpeed;
 
-        //Debug.Log($"{target}, {bulletDirection}, {bulletDirection.normalized * shootSpeed}");
+            aud.Play();
+            
+            canShoot = false;
+            StartCoroutine(ShootCoolDown());
+
+            //Debug.Log($"{target}, {bulletDirection}, {bulletDirection.normalized * shootSpeed}");
+        }
+
+    }
+    private IEnumerator ShootCoolDown()
+    {
+        yield return new WaitForSeconds(cooldown);
+        canShoot = true;
     }
 
-    void Movement()
+
+        void Movement()
     {
         //Changed the transform.position to a velocity so we can acknowledge colliders , transform disreguards any colliders 
         Vector3 pos = new Vector3();

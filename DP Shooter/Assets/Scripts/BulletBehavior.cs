@@ -19,7 +19,7 @@ public class BulletBehavior : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Wall")
+        if (collision.gameObject.tag == "Wall" || collision.gameObject.tag == "Door")
         {
             if (count++ >= 1)
             {
@@ -27,11 +27,5 @@ public class BulletBehavior : MonoBehaviour
             }
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-  
-
-    }
-
+    
 }
