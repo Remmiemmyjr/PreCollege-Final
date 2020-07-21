@@ -6,7 +6,7 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     public GameObject[] pressurePlates;
-    private List<PressurePlate> listOfPlates = new List<PressurePlate>();
+    internal List<PressurePlate> listOfPlates = new List<PressurePlate>();
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,14 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(listOfPlates.Count == 0)
+        {
+            CloseDoor();
+        }
+        else
+        {
 
+        }
     }
 
     private void UpdatePressurePlates()
