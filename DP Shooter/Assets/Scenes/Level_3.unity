@@ -172,7 +172,7 @@ PrefabInstance:
     - target: {fileID: 962250043292148237, guid: 3c5fdda398c22f84bbf41af6148b4b3c,
         type: 3}
       propertyPath: LevelName
-      value: Level 4
+      value: Level_4
       objectReference: {fileID: 0}
     - target: {fileID: 6892507640361204396, guid: 3c5fdda398c22f84bbf41af6148b4b3c,
         type: 3}
@@ -968,6 +968,7 @@ MonoBehaviour:
   shoot: {fileID: 8300000, guid: c020bed1d2113564abbd0b5f32fa2f25, type: 3}
   playerSpeed: 6.5
   shootSpeed: 10
+  cooldown: 0.5
   Bullet: {fileID: 7294722043248330415, guid: 9393c883fa9e7bb44b671f7d0dd949e1, type: 3}
   bulletOrigin: {fileID: 102231816}
 --- !u!50 &1133747165
