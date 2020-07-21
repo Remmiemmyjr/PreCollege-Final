@@ -19,8 +19,6 @@ public class PressurePlate : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
         Box = GameObject.FindGameObjectWithTag("MoveBox");
         doorScript = Door.GetComponent<Door>();
-        triggerEntities.Add(Player);
-        triggerEntities.Add(Box);
         entitiesNeeded = doorScript.pressurePlates.Length;
     }
 
@@ -32,25 +30,39 @@ public class PressurePlate : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D trigger)
     {
-        if (trigger.gameObject == Player || trigger.gameObject == Box)
-        {
-            Debug.Log(entitiesNeeded);
-            foreach (GameObject entity in triggerEntities)
-            {
-                entitiesOn++;
-            }
-            if (entitiesOn > entitiesNeeded)
-            {
-                Debug.Log("Door Open");
-                OpenDoor();
-            }
-        }
-
         if (trigger.gameObject.tag == "MoveBox" || trigger.gameObject.tag == "Player")
         {
             Debug.Log("Door Open");
             OpenDoor();
         }
+
+        //if (trigger.gameObject == Player)
+        //{
+        //    Debug.Log($"Entities Needed: {entitiesNeeded}");
+        //    triggerEntities.Add(Player);
+        //    Debug.Log($"Entities On: {entitiesOn}");
+
+
+        //}
+        //else if (trigger.gameObject == Box)
+        //{
+        //    Debug.Log($"Entities Needed: {entitiesNeeded}");
+        //    triggerEntities.Add(Box);
+        //    Debug.Log($"Entities On: {entitiesOn}");
+
+        //    
+        //}
+
+        //foreach (GameObject entity in triggerEntities)
+        //{
+        //    entitiesOn++;
+        //}
+
+        //if (entitiesOn >= entitiesNeeded)
+        //{
+        //    Debug.Log("Door Open");
+        //    OpenDoor();
+        //}
 
     }
 
@@ -58,14 +70,14 @@ public class PressurePlate : MonoBehaviour
     {
         //if (trigger.gameObject == Player || trigger.gameObject == Box)
         //{
-        //    foreach (GameObject entity in triggerEntities)
+        //    triggerEntities.Remove(trigger.gameObject);
+        //    entitiesOn--;
+
+        //    if (triggerEntities.Count == 0)
         //    {
-        //        entitiesOn--;
-        //    }
-        //    if (entitiesOn < entitiesNeeded)
-        //    {
-        //        Debug.Log("Door Open");
-        //        OpenDoor();
+        //        Debug.Log("Door Closed");
+        //        entitiesOn = 0;
+        //        CloseDoor();
         //    }
         //}
         if (trigger.gameObject.tag == "MoveBox" || trigger.gameObject.tag == "Player")

@@ -18,14 +18,6 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(listOfPlates.Count == 0)
-        {
-            CloseDoor();
-        }
-        else
-        {
-
-        }
     }
 
     private void UpdatePressurePlates()
