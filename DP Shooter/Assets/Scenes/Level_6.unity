@@ -460,6 +460,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.029000001}
+--- !u!1 &580246944 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6034369727130289012, guid: e07875c5f53b7e14393ef84f0312e247,
+    type: 3}
+  m_PrefabInstance: {fileID: 409076033}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &667124410
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -931,7 +937,7 @@ PrefabInstance:
         type: 3}
       propertyPath: pressurePlates.Array.data[0]
       value: 
-      objectReference: {fileID: 1253565676}
+      objectReference: {fileID: 580246944}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04a0cb91103b97840a018c7f3052146d, type: 3}
 --- !u!1 &906443000 stripped
