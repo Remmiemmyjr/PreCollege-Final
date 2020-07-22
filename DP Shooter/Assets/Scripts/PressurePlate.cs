@@ -10,8 +10,8 @@ public class PressurePlate : MonoBehaviour
     Door doorScript;
     public bool isPressed;
     private List<GameObject> triggerEntities = new List<GameObject>();
-    public int entitiesOn = 0;
-    public int entitiesNeeded;
+   
+    public int entitiesNeeded = 1;
 
     //Start is called before the first frame update
     void Start()
@@ -32,8 +32,9 @@ public class PressurePlate : MonoBehaviour
     {
         if (trigger.gameObject.tag == "MoveBox" || trigger.gameObject.tag == "Player")
         {
+            triggerEntities.Add(trigger.gameObject);
             Debug.Log("Door Open");
-            OpenDoor();
+            PlateActive();
         }
 
         //if (trigger.gameObject == Player)
@@ -82,12 +83,16 @@ public class PressurePlate : MonoBehaviour
         //}
         if (trigger.gameObject.tag == "MoveBox" || trigger.gameObject.tag == "Player")
         {
-            Debug.Log("Door Closed");
-            CloseDoor();
+            triggerEntities.Remove(trigger.gameObject);
+            if (triggerEntities.Count == 0)
+            {
+                Debug.Log("Door Closed");
+                PlateNotActive();
+            }
         }
     }
 
-    void OpenDoor()
+    void PlateActive()
     {
         //Play Animation
 
@@ -95,7 +100,7 @@ public class PressurePlate : MonoBehaviour
         doorScript.PressurePlateChanged();
     }
 
-    void CloseDoor()
+    void PlateNotActive()
     {
         isPressed = false;
         doorScript.PressurePlateChanged();

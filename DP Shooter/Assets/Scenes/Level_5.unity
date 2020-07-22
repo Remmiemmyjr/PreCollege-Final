@@ -2509,7 +2509,7 @@ PrefabInstance:
         type: 3}
       propertyPath: pressurePlates.Array.data[0]
       value: 
-      objectReference: {fileID: 1555350279}
+      objectReference: {fileID: 1976139978}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04a0cb91103b97840a018c7f3052146d, type: 3}
 --- !u!1001 &1976139977
@@ -2596,3 +2596,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e07875c5f53b7e14393ef84f0312e247, type: 3}
+--- !u!1 &1976139978 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6034369727130289012, guid: e07875c5f53b7e14393ef84f0312e247,
+    type: 3}
+  m_PrefabInstance: {fileID: 1976139977}
+  m_PrefabAsset: {fileID: 0}

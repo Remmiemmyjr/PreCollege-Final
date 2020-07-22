@@ -82,7 +82,9 @@ public class Obstacles : MonoBehaviour
                         //var localBulletDir = collision.gameObject.GetComponent<Rigidbody2D>().velocity.normalized;
                         var bulletPos = collision.gameObject.transform.position;
                         //Normalized bullet velocity, subtracting the bullets position by the velocity to create an offset, "localscale" is the size of the player which helps determine how far to offset the player by (radius is 0.5, so we divide by 4 to get it near the box)                                                    
-                        PlayerController.Player.transform.position = bulletPos - (Vector3)impactDirection * (PlayerController.Player.transform.localScale.magnitude / 4f);
+                        Vector3 newPos = bulletPos - (Vector3)impactDirection * (PlayerController.Player.transform.localScale.magnitude / 4f);
+                        newPos.z = PlayerController.Player.transform.position.z; //Ensures we save the accurate z axis of the player, rather than have it get modified
+                        PlayerController.Player.transform.position = newPos;
                         break;
                     }
             }
