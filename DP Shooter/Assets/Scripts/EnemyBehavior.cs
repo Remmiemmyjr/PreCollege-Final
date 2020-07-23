@@ -5,13 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class EnemyBehavior : MonoBehaviour
 {
+    public enum EnemyType { UpDown, Follow, Hybrid}
+    public EnemyType FollowBehavior;
+
     Rigidbody2D rb;
     Transform Player;
     public Vector2 acc;
     private Vector3 savePos;
     Vector3 toPlayer = new Vector3(0.0f, 0.0f, 0.0f);
-    int maxDistance = 5;
-    float followSpeed = 1.5f;
+    public float accRate = 3f;
+    public int maxDistance = 5;
+    public float followSpeed = 1.5f;
     bool following = false;
     bool canFollow = true;
 
@@ -26,30 +30,53 @@ public class EnemyBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, Player.position) <= maxDistance)
-        {
-            following = canFollow;
-        }
-        if (following)
-        {
-            Follow();
-        }
-        else
-        {
-            Movement();
-        }
 
         //Debug.Log($"{rb.velocity}, {acc}");
         
+        switch(FollowBehavior)
+        {
+            case EnemyType.UpDown:
+                Movement();
+                break;
+            case EnemyType.Follow:
+                {
+                    FollowCondition();
+                    if (following)
+                    {
+                        Follow();
+                    }
+                    break;
+                }
+            case EnemyType.Hybrid:
+                {
+                    FollowCondition();
+                    if (following)
+                    {
+                        Follow();
+                    }
+                    else
+                    {
+                        Movement();
+                    }
+                    break;
+                }
 
+        }
     }
 
     void Movement()
     {
-        rb.velocity += (acc * Time.deltaTime) * 3f;
+        rb.velocity += (acc * Time.deltaTime) * accRate;
         //rb.velocity += vel * Time.deltaTime;
     }
-    private void Follow()
+    void FollowCondition()
+    {
+        if (Vector3.Distance(transform.position, Player.position) <= maxDistance)
+        {
+            following = canFollow;
+        }
+    }
+    void Follow()
     {
         toPlayer = Player.position - transform.position;
         toPlayer = toPlayer.normalized * followSpeed;
@@ -96,9 +123,7 @@ public class EnemyBehavior : MonoBehaviour
             canFollow = true;
         }
     }
-
-
-        
+  
 }
 
 

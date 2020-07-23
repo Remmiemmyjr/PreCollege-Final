@@ -11,7 +11,7 @@ public class PressurePlate : MonoBehaviour
     public bool isPressed;
     private List<GameObject> triggerEntities = new List<GameObject>();
    
-    public int entitiesNeeded = 1;
+    int entitiesNeeded = 1;
 
     //Start is called before the first frame update
     void Start()
