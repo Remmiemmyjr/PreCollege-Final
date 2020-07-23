@@ -85,6 +85,7 @@ public class EnemyBehavior : MonoBehaviour
             yield return new WaitForSeconds(0.75f);
         }
     }
+    
 
     private IEnumerator FollowCooldown()
     {
