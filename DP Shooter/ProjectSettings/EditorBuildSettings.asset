@@ -33,6 +33,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Level_4.unity
     guid: 1a712043f9c842a45a0ae9c181508a90
   - enabled: 1
-    path: Assets/Scenes/Level_6.unity
+    path: Assets/Scenes/Level_7.unity
     guid: 2d73c3de1ceb07d41980fa00e79fee63
+  - enabled: 1
+    path: Assets/Scenes/Easter_Egg.unity
+    guid: aeee7b4402019f94d8fe22f5ddbf30df
+  - enabled: 1
+    path: Assets/Scenes/Finished_Level1.unity
+    guid: 141dbee02dfdbe3489c9cb8db5985314
   m_configObjects: {}
