@@ -91,7 +91,7 @@ public class Obstacles : MonoBehaviour
 
             Destroy(collision.gameObject);
         }
-        else
+        if(collision.gameObject.tag == "Player")
         {
             Rigidbody2D moveRB = gameObject.GetComponent<Rigidbody2D>();
             moveRB.velocity = new Vector2(0, 0);
