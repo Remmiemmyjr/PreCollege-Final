@@ -974,11 +974,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelChanger (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 26329471557589983, guid: 3c5fdda398c22f84bbf41af6148b4b3c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 962250043292148237, guid: 3c5fdda398c22f84bbf41af6148b4b3c,
         type: 3}
       propertyPath: LevelName
       value: Easter_Egg
       objectReference: {fileID: 0}
+    - target: {fileID: 962250043292148237, guid: 3c5fdda398c22f84bbf41af6148b4b3c,
+        type: 3}
+      propertyPath: postProcess
+      value: 
+      objectReference: {fileID: 741498566}
     - target: {fileID: 6892507640361204396, guid: 3c5fdda398c22f84bbf41af6148b4b3c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1251,6 +1261,11 @@ PrefabInstance:
       propertyPath: LevelName
       value: Level_2
       objectReference: {fileID: 0}
+    - target: {fileID: 962250043292148237, guid: 3c5fdda398c22f84bbf41af6148b4b3c,
+        type: 3}
+      propertyPath: postProcess
+      value: 
+      objectReference: {fileID: 741498566}
     - target: {fileID: 6892507640361204396, guid: 3c5fdda398c22f84bbf41af6148b4b3c,
         type: 3}
       propertyPath: m_LocalPosition.x
