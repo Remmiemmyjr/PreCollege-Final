@@ -5,11 +5,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     internal static GameObject Player;     //Reference to the player 
+    public static PlayerController playerScript;    //Reference to this script
     public AudioClip shoot;                //Calls the shoot sfx clip
     AudioSource aud;                       //References the audio source
 
-    [Header("Player Settings")]
+    //[Header("Player Settings")]
     public float playerSpeed = 3.5f;
+    public GameObject ripplefx;
 
     [Header("Bullet Settings")]
     public float shootSpeed = 10f;
@@ -19,12 +21,13 @@ public class PlayerController : MonoBehaviour
     private Vector3 target;                 //Position of the mouse
     bool canShoot = true;
 
-
+    
 
     void Start()
     {
         Cursor.visible = false;
         Player = this.gameObject;
+        playerScript = this;
         aud = GetComponent<AudioSource>();
         aud.clip = shoot;
     }

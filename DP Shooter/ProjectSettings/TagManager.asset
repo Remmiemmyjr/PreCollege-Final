@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - MoveBox
   - Enemy
+  - Shader
   layers:
   - Default
   - TransparentFX

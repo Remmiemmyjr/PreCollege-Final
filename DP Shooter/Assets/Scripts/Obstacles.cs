@@ -11,7 +11,9 @@ public class Obstacles : MonoBehaviour
     public ObjectType classification;
     [Tooltip("The lower the number, the farther the moveable box will travel when hit")]
     public float boxDistanceModifier = 75f;
-    
+    public float fxSize = 15f;
+    public Color startColor = Color.blue;
+    public Color endColor = Color.white;
 
     private void Start()
     {
@@ -83,10 +85,11 @@ public class Obstacles : MonoBehaviour
                         var bulletPos = collision.gameObject.transform.position;
                         //Normalized bullet velocity, subtracting the bullets position by the velocity to create an offset, "localscale" is the size of the player which helps determine how far to offset the player by (radius is 0.5, so we divide by 4 to get it near the box)                                                    
                         Vector3 newPos = bulletPos - (Vector3)impactDirection * (PlayerController.Player.transform.localScale.magnitude / 4f);
-                        newPos.z = PlayerController.Player.transform.position.z; //Ensures we save the accurate z axis of the player, rather than have it get modified
-                        PlayerController.Player.transform.position = newPos;
+                        
+                        StartCoroutine(TeleportFX(newPos));
                         break;
                     }
+                    
             }
 
             Destroy(collision.gameObject);
@@ -119,5 +122,46 @@ public class Obstacles : MonoBehaviour
         }
         moveRB.velocity = new Vector2();
     }
-    
+
+    IEnumerator TeleportFX(Vector3 newPos)
+    {
+        float timer = 0.0f;
+        float duration = 0.35f;
+        Vector3 startScale = new Vector3();
+        Vector3 endScale = new Vector3(fxSize, fxSize, fxSize);
+
+        //ripple out
+        GameObject ripplefx = PlayerController.playerScript.ripplefx;
+        SpriteRenderer sr = ripplefx.GetComponent<SpriteRenderer>();
+
+        while (timer < duration)
+        {
+            timer += Time.deltaTime;
+            float t = timer / duration;
+            //t = t * t * t * (t * (6f * t - 15f) + 10f);
+            sr.color = Color.Lerp(startColor, endColor, t);
+            ripplefx.transform.localScale = Vector3.Lerp(startScale, endScale, t);            
+            yield return null;
+        }
+        
+        //teleport
+        newPos.z = PlayerController.Player.transform.position.z; //Ensures we save the accurate z axis of the player, rather than have it get modified
+        PlayerController.Player.transform.position = newPos;
+
+        //ripple in
+        timer = 0f;
+        while (timer < duration)
+        {
+            timer += Time.deltaTime;
+            float t = timer / duration;
+            //t = t * t * t * (t * (6f * t - 15f) + 10f);
+            sr.color = Color.Lerp(endColor, startColor, t);
+            ripplefx.transform.localScale = Vector3.Lerp(endScale, startScale, t);
+            yield return null;
+        }
+
+
+        yield return null;
+    }
+                    
 }
