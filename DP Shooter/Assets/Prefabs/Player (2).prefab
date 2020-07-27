@@ -40,11 +40,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7092882577786175021}
   - component: {fileID: 7092882577786175020}
-  - component: {fileID: 7092882577786175023}
   - component: {fileID: 7092882577786175022}
   - component: {fileID: 7092882577786175025}
   - component: {fileID: 7092882577786175024}
   - component: {fileID: 8503260562517341886}
+  - component: {fileID: -3526540918357195629}
   m_Layer: 9
   m_Name: Player (2)
   m_TagString: Player
@@ -119,22 +119,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &7092882577786175023
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7092882577786175027}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!50 &7092882577786175022
 Rigidbody2D:
   serializedVersion: 4
@@ -290,6 +274,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &-3526540918357195629
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7092882577786175027}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.8110523, y: -0.20563263}
+  m_Size: {x: 1.8578953, y: 3.4619005}
+  m_Direction: 0
 --- !u!1 &9051808096383162014
 GameObject:
   m_ObjectHideFlags: 0
