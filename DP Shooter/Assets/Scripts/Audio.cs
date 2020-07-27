@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Audio : MonoBehaviour
 {
-    public AudioClip shoot;
+    public AudioClip teleport;
     //public AudioClip teleport;
     public AudioClip destroy;
     //public AudioClip died;
@@ -17,23 +17,11 @@ public class Audio : MonoBehaviour
         source = transform.GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    private void Update()
+    public void PlayTeleport()
     {
-
-    }
-
-    public void PlayShoot()
-    {
-        source.clip = shoot;
+        source.clip = teleport;
         source.Play();
     }
-
-    //public void PlayTeleport()
-    //{
-    //    source.clip = teleport;
-    //    source.Play();
-    //}
 
     public void PlayDestroy()
     {

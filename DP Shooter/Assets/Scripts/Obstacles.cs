@@ -110,6 +110,7 @@ public class Obstacles : MonoBehaviour
 
                         //Player is teleported INSIDE this co-routine
                         StartCoroutine(TeleportFX(newPos));
+                        aud.PlayTeleport();
                         break;
                     }
                     
