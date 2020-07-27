@@ -22,6 +22,9 @@ public class PlayerController : MonoBehaviour
     //Reference to this script
     public static PlayerController playerScript;
 
+    //Reference to animator
+    Animator ani;
+
     //References the audio source
     AudioSource aud;                               
 
@@ -67,6 +70,7 @@ public class PlayerController : MonoBehaviour
         playerScript = this;
         aud = GetComponent<AudioSource>();
         aud.clip = shoot;
+        ani = GetComponent<Animator>();
     }
 
     void Update()
@@ -110,29 +114,47 @@ public class PlayerController : MonoBehaviour
         canShoot = true;
     }
 
+        
+    
 
-        void Movement()
+    void Movement()
     {
+
+        bool didGetInput = false;
         //Changed the transform.position to a velocity so we can acknowledge colliders , transform disreguards any colliders 
         Vector3 pos = new Vector3();
 
         if (Input.GetKey(KeyCode.W))
         {
             pos.y += 1;
+            didGetInput = true;
         }
         if (Input.GetKey(KeyCode.S))
         {
             pos.y -= 1;
+            didGetInput = true;
         }
         if (Input.GetKey(KeyCode.D))
         {
             pos.x += 1;
+            transform.localScale = new Vector2(0.5f, 0.5f);
+            didGetInput = true;
+            ani.SetFloat("Vel", 1);
         }
         if (Input.GetKey(KeyCode.A))
         {
             pos.x -= 1;
+            transform.localScale = new Vector2(-0.5f, 0.5f);
+            didGetInput = true;
+            ani.SetFloat("Vel", 1);
         }
+        
         //Uses normalized vector to maintain constant speed in all directions
         GetComponent<Rigidbody2D>().velocity = pos.normalized * playerSpeed;
+
+        if(didGetInput == false)
+        {
+            ani.SetFloat("Vel", 0);
+        }
     }
 }
