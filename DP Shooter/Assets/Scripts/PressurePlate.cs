@@ -2,6 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/***************************************************
+File:           PressurePlate.cs
+Authors:        Emmy Berg
+Last Updated:   7/27/2020
+Last Version:   2019.3.11
+
+Description:
+Pressure plate objects are set up here. If an object 
+with authority triggers a pressureplate, the door it 
+is linked to will open. This script determines which 
+objects have the ability to trigger plates
+
+***************************************************/
+
 public class PressurePlate : MonoBehaviour
 {
     public GameObject Door;
@@ -28,6 +42,7 @@ public class PressurePlate : MonoBehaviour
         
     }
 
+    //Anything that enters is added to a list (Door Open)
     private void OnTriggerEnter2D(Collider2D trigger)
     {
         if (trigger.gameObject.tag == "MoveBox" || trigger.gameObject.tag == "Player")
@@ -36,54 +51,15 @@ public class PressurePlate : MonoBehaviour
             Debug.Log("Door Open");
             PlateActive();
         }
-
-        //if (trigger.gameObject == Player)
-        //{
-        //    Debug.Log($"Entities Needed: {entitiesNeeded}");
-        //    triggerEntities.Add(Player);
-        //    Debug.Log($"Entities On: {entitiesOn}");
-
-
-        //}
-        //else if (trigger.gameObject == Box)
-        //{
-        //    Debug.Log($"Entities Needed: {entitiesNeeded}");
-        //    triggerEntities.Add(Box);
-        //    Debug.Log($"Entities On: {entitiesOn}");
-
-        //    
-        //}
-
-        //foreach (GameObject entity in triggerEntities)
-        //{
-        //    entitiesOn++;
-        //}
-
-        //if (entitiesOn >= entitiesNeeded)
-        //{
-        //    Debug.Log("Door Open");
-        //    OpenDoor();
-        //}
-
     }
 
+    //When an object exits, its removed from the list (Door Closes)
     private void OnTriggerExit2D(Collider2D trigger)
     {
-        //if (trigger.gameObject == Player || trigger.gameObject == Box)
-        //{
-        //    triggerEntities.Remove(trigger.gameObject);
-        //    entitiesOn--;
-
-        //    if (triggerEntities.Count == 0)
-        //    {
-        //        Debug.Log("Door Closed");
-        //        entitiesOn = 0;
-        //        CloseDoor();
-        //    }
-        //}
         if (trigger.gameObject.tag == "MoveBox" || trigger.gameObject.tag == "Player")
         {
             triggerEntities.Remove(trigger.gameObject);
+            //Once the list is 0, the door will close (this is to ensure that it will remain open if more than one object is on it
             if (triggerEntities.Count == 0)
             {
                 Debug.Log("Door Closed");
@@ -92,14 +68,14 @@ public class PressurePlate : MonoBehaviour
         }
     }
 
+    //Somethings on the plate
     void PlateActive()
     {
-        //Play Animation
-
         isPressed = true;
         doorScript.PressurePlateChanged();
     }
 
+    //Nothing on the plate
     void PlateNotActive()
     {
         isPressed = false;

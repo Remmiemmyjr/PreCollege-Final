@@ -14,7 +14,6 @@ public class CrossHair : MonoBehaviour
 
     void Update()
     {
-
         float distance = transform.position.z + Camera.main.transform.position.z;
         targetPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance);
         targetPos = Camera.main.ScreenToWorldPoint(targetPos);
