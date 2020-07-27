@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/****************************************
- * Author: Emmy Berg
- * Date: 7/27/2020
- * Description: If a bullet ricochets off the environement, it will be destroyed on the next collision it makes
- ***************************************/
+/***************************************************
+File:           BulletBehavior.cs
+Authors:        Emmy Berg
+Last Updated:   7/27/2020
+Last Version:   2019.3.11
+
+Description:
+If a bullet ricochets off the environement, it will be 
+destroyed on the next collision it makes
+
+***************************************************/
 
 public class BulletBehavior : MonoBehaviour
 {

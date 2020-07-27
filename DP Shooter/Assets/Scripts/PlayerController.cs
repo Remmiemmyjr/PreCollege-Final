@@ -2,29 +2,60 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/****************************************
- * Author: Emmy Berg
- * Date: 7/27/2020
- * Description: This script contains all the player/interactable controls, like movement and shooting
- ***************************************/
+/***************************************************
+File:           BulletBehavior.cs
+Authors:        Emmy Berg
+Last Updated:   7/27/2020
+Last Version:   2019.3.11
+
+Description:
+This script contains all the player/interactable controls, 
+like movement and shooting
+
+***************************************************/
 
 public class PlayerController : MonoBehaviour
 {
-    internal static GameObject Player;              //Reference to the player 
-    public static PlayerController playerScript;    //Reference to this script
-    public AudioClip shoot;                         //Calls the shoot sfx clip
-    AudioSource aud;                                //References the audio source
+    //Reference to the player 
+    internal static GameObject Player;
+
+    //Reference to this script
+    public static PlayerController playerScript;
+
+    //References the audio source
+    AudioSource aud;                               
 
     [Header("Player Settings")]
+
+    //Ripple fx that reacts to teleportation
+    public GameObject ripplefx;
+
+    //Calls the shoot sfx clip
+    public AudioClip shoot;
+
+    //Default speed
     public float playerSpeed = 3.5f;
-    public GameObject ripplefx;                     //A shader set up in the prefab that reacts to teleportation
+              
+
 
     [Header("Bullet Settings")]
-    public float shootSpeed = 10f;
-    public float cooldown = 0.5f;
+
+    //Reference to the bullet
     public GameObject Bullet;
-    public Transform bulletOrigin;          //Saved transform that allows us to shoot/instantiate bullets from a particular location/offset
-    private Vector3 target;                 //Position of the mouse
+
+    //Location where bullet will be instantiated
+    public Transform bulletOrigin;
+
+    //Bullet speed
+    public float shootSpeed = 10f;
+
+    //Time til player can shoot
+    public float cooldown = 0.5f;
+    
+    //Reference to mouse
+    private Vector3 target; 
+    
+    //Check to shoot
     bool canShoot = true;
 
     

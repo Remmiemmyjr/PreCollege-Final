@@ -3,11 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/****************************************
- * Author: Emmy Berg
- * Date: 7/27/2020
- * Description: This script finds what objects can open the door. The pressureplates that can open this door are linked in here.
- ***************************************/
+/***************************************************
+File:           Door.cs
+Authors:        Emmy Berg
+Last Updated:   7/27/2020
+Last Version:   2019.3.11
+
+Description:
+This script finds what objects can open the door. 
+The pressureplates that can open this door are linked in 
+here.
+
+***************************************************/
 
 public class Door : MonoBehaviour
 {
@@ -32,8 +39,8 @@ public class Door : MonoBehaviour
 
         foreach(GameObject plate in pressurePlates)
         {
+            //Hooks up pressureplate to door
             PressurePlate temp = plate.GetComponent<PressurePlate>();
-            //If a designer forgot to hook up a pressureplate this will ensure regardless its hooked up to the door both ways (makes sure the pressure plate is pointing back to the door)
             temp.Door = this.gameObject;
             listOfPlates.Add(temp);
         }
@@ -55,8 +62,6 @@ public class Door : MonoBehaviour
 
     void OpenDoor()
     {
-        //Play Animation
-
         gameObject.SetActive(false);
     }
 

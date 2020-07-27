@@ -2,12 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/****************************************
- * Author: Emmy Berg
- * Date: 7/27/2020
- * Description: Pressure plate objects are set up here. If an object with authority triggers a pressureplate, 
- the door it is linked to will open. This script determines which objects have the ability to trigger plates
- ***************************************/
+/***************************************************
+File:           PressurePlate.cs
+Authors:        Emmy Berg
+Last Updated:   7/27/2020
+Last Version:   2019.3.11
+
+Description:
+Pressure plate objects are set up here. If an object 
+with authority triggers a pressureplate, the door it 
+is linked to will open. This script determines which 
+objects have the ability to trigger plates
+
+***************************************************/
 
 public class PressurePlate : MonoBehaviour
 {
@@ -35,9 +42,9 @@ public class PressurePlate : MonoBehaviour
         
     }
 
+    //Anything that enters is added to a list (Door Open)
     private void OnTriggerEnter2D(Collider2D trigger)
     {
-        //If one of these gameobjects triggers the pressureplate, they are added to a list
         if (trigger.gameObject.tag == "MoveBox" || trigger.gameObject.tag == "Player")
         {
             triggerEntities.Add(trigger.gameObject);
@@ -46,9 +53,9 @@ public class PressurePlate : MonoBehaviour
         }
     }
 
+    //When an object exits, its removed from the list (Door Closes)
     private void OnTriggerExit2D(Collider2D trigger)
     {
-        //Once the object that was on is removed from the pressureplate, that object is then remvoed from the list
         if (trigger.gameObject.tag == "MoveBox" || trigger.gameObject.tag == "Player")
         {
             triggerEntities.Remove(trigger.gameObject);
@@ -61,12 +68,14 @@ public class PressurePlate : MonoBehaviour
         }
     }
 
+    //Somethings on the plate
     void PlateActive()
     {
         isPressed = true;
         doorScript.PressurePlateChanged();
     }
 
+    //Nothing on the plate
     void PlateNotActive()
     {
         isPressed = false;

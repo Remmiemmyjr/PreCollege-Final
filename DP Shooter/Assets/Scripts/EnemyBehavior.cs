@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-/****************************************
- * Author: Emmy Berg
- * Date: 7/27/2020
- * Description: This script determines the movement/follow patterns of enemy drones. 
- The type can be switched from basic up/down movement, player tracking, and a hybird version of both
- ***************************************/
+/***************************************************
+File:           EnemyBehavior.cs
+Authors:        Emmy Berg
+Last Updated:   7/27/2020
+Last Version:   2019.3.11
 
+Description:
+ This script determines the movement/follow patterns 
+ of enemy drones. The type can be switched from basic 
+ up/down movement, player tracking, and a hybird version 
+ of both
+ 
+***************************************************/
 public class EnemyBehavior : MonoBehaviour
 {
     public enum EnemyType { UpDown, Follow, Hybrid}
@@ -17,15 +23,18 @@ public class EnemyBehavior : MonoBehaviour
 
     Rigidbody2D rb;
     Transform Player;
+
     public Vector2 acc;
     private Vector3 savePos;
     Vector3 toPlayer = new Vector3(0.0f, 0.0f, 0.0f);
-    public float accRate = 3f;
+
     public int maxDistance = 5;
     public float followSpeed = 1.5f;
+    public float accRate = 3f;
     bool following = false;
     bool canFollow = true;
 
+    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -37,10 +46,15 @@ public class EnemyBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        //Debug.Log($"{rb.velocity}, {acc}");
+        Behavior();
         
-        switch(FollowBehavior)
+        //Debug.Log($"{rb.velocity}, {acc}");
+    }
+
+    //Calls the appropriate function for each type
+    void Behavior()
+    {
+        switch (FollowBehavior)
         {
             case EnemyType.UpDown:
                 Movement();
@@ -67,15 +81,17 @@ public class EnemyBehavior : MonoBehaviour
                     }
                     break;
                 }
-
         }
     }
 
+    //Moves up and down, slight accel to show weight
     void Movement()
     {
         rb.velocity += (acc * Time.deltaTime) * accRate;
         //rb.velocity += vel * Time.deltaTime;
     }
+
+    //Determines if enemies in range to follow
     void FollowCondition()
     {
         //If the player is within a particular range, the enemys ability to track is enable
@@ -84,7 +100,8 @@ public class EnemyBehavior : MonoBehaviour
             following = canFollow;
         }
     }
-    //Takes the players position and subtracts the position of the enemy from it in order to get a straight path to the player
+
+    //Moves toward the player
     void Follow()
     {
         toPlayer = Player.position - transform.position;
@@ -92,13 +109,14 @@ public class EnemyBehavior : MonoBehaviour
         rb.velocity = toPlayer;
     }
 
+    //Restarts level when touching the player
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        //If the drone hits something, it will be distracted and start a cooldown routine
+        //When it hits something else, reverse movement
         else
         {
             following = false;
@@ -109,7 +127,7 @@ public class EnemyBehavior : MonoBehaviour
         }
     }
 
-    //This co-routine constantly checks every whether or not the enemy's position has changed. If it hasnt, this means the enemy is stuck, and the movement will be reversed
+    //Checks if the position has changed. If not, reverse movement
     private IEnumerator Unstuck()
     {
         while (true)
@@ -124,7 +142,7 @@ public class EnemyBehavior : MonoBehaviour
         }
     }
 
-    //The drone will resort to basic up/down movement, or remain still upon getting hit in order to give the player some breathing room
+    //Waits to follow player again
     private IEnumerator FollowCooldown()
     {
         if(canFollow)
