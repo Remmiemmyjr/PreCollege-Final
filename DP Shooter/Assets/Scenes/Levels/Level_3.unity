@@ -1737,12 +1737,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54230aa689abee146a1bdbf9e9fa6677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ripplefx: {fileID: 0}
   shoot: {fileID: 8300000, guid: c020bed1d2113564abbd0b5f32fa2f25, type: 3}
   playerSpeed: 6.5
-  shootSpeed: 20
-  cooldown: 0.5
   Bullet: {fileID: 7294722043248330415, guid: 9393c883fa9e7bb44b671f7d0dd949e1, type: 3}
   bulletOrigin: {fileID: 1178201873}
+  shootSpeed: 20
+  cooldown: 0.5
 --- !u!50 &906975590
 Rigidbody2D:
   serializedVersion: 4
