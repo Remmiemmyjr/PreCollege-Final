@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 target; 
     
     //Check to shoot
-    bool canShoot = true;
+    public bool canShoot = true;
 
     
 
@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
         target = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
         target.z = 0f;
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && canShoot)
         {
             Shoot();
         }
