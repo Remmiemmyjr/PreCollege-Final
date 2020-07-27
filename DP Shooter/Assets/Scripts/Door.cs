@@ -3,6 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/****************************************
+ * Author: Emmy Berg
+ * Date: 7/27/2020
+ * Description: This script finds what objects can open the door. The pressureplates that can open this door are linked in here.
+ ***************************************/
+
 public class Door : MonoBehaviour
 {
     public GameObject[] pressurePlates;

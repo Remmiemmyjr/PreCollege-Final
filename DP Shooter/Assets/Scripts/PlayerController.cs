@@ -2,16 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/****************************************
+ * Author: Emmy Berg
+ * Date: 7/27/2020
+ * Description: This script contains all the player/interactable controls, like movement and shooting
+ ***************************************/
+
 public class PlayerController : MonoBehaviour
 {
-    internal static GameObject Player;     //Reference to the player 
+    internal static GameObject Player;              //Reference to the player 
     public static PlayerController playerScript;    //Reference to this script
-    public AudioClip shoot;                //Calls the shoot sfx clip
-    AudioSource aud;                       //References the audio source
+    public AudioClip shoot;                         //Calls the shoot sfx clip
+    AudioSource aud;                                //References the audio source
 
-    //[Header("Player Settings")]
+    [Header("Player Settings")]
     public float playerSpeed = 3.5f;
-    public GameObject ripplefx;
+    public GameObject ripplefx;                     //A shader set up in the prefab that reacts to teleportation
 
     [Header("Bullet Settings")]
     public float shootSpeed = 10f;
