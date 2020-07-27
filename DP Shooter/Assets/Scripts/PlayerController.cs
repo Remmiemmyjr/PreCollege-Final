@@ -38,6 +38,9 @@ public class PlayerController : MonoBehaviour
 
     //Default speed
     public float playerSpeed = 3.5f;
+
+    //Players scale (helps with flipping)
+    public float playerScale = 0.5f;
               
 
 
@@ -124,29 +127,37 @@ public class PlayerController : MonoBehaviour
         //Changed the transform.position to a velocity so we can acknowledge colliders , transform disreguards any colliders 
         Vector3 pos = new Vector3();
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W)) //UP
         {
             pos.y += 1;
             didGetInput = true;
+            ani.SetBool("Side", false);
+            ani.SetBool("Up", true);
+            ani.SetBool("IsMoving", true);
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S)) //DOWN
         {
             pos.y -= 1;
             didGetInput = true;
+            ani.SetBool("Side", false);
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D)) //RIGHT
         {
             pos.x += 1;
-            transform.localScale = new Vector2(0.5f, 0.5f);
+            transform.localScale = new Vector2(playerScale, playerScale);
             didGetInput = true;
-            ani.SetFloat("Vel", 1);
+            ani.SetBool("Side", true);
+            ani.SetBool("Up", false);
+            ani.SetBool("IsMoving", true);
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A)) //LEFT
         {
             pos.x -= 1;
-            transform.localScale = new Vector2(-0.5f, 0.5f);
+            transform.localScale = new Vector2(-playerScale, playerScale);
             didGetInput = true;
-            ani.SetFloat("Vel", 1);
+            ani.SetBool("Side", true);
+            ani.SetBool("Up", false);
+            ani.SetBool("IsMoving", true);
         }
         
         //Uses normalized vector to maintain constant speed in all directions
@@ -154,7 +165,9 @@ public class PlayerController : MonoBehaviour
 
         if(didGetInput == false)
         {
-            ani.SetFloat("Vel", 0);
+            ani.SetBool("Side", false);
+            ani.SetBool("Up", false);
+            ani.SetBool("IsMoving", false);
         }
     }
 }
