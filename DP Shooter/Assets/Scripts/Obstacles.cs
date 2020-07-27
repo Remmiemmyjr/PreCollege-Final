@@ -42,7 +42,9 @@ public class Obstacles : MonoBehaviour
     public Color startColor = Color.blue;
 
     //The end color for the ripple over time. NEEDS TO HAVE TRANSPARENCY (alter the alpha channel)
-    public Color endColor = Color.white; 
+    public Color endColor = Color.white;
+
+    public ParticleSystem destroyParticle;
 
     private void Start()
     {
@@ -76,9 +78,8 @@ public class Obstacles : MonoBehaviour
                 case ObjectType.Destructable:
                     //Bullet destroys the box
                     {
-                        //PLAY PARTICLE FX
-                        aud.PlayDestroy();
-                        Destroy(this.gameObject);
+                        StartCoroutine(WaitToDestroy());
+                        
                         break;
                     }
 
@@ -127,6 +128,17 @@ public class Obstacles : MonoBehaviour
     }
 
     //NOTE FOR EMMY: Co-Routines run parallel to the main loop, meaning that this code begins when declared and runs while the rest of the code is running from then on.
+
+
+    IEnumerator WaitToDestroy()
+    {
+        destroyParticle.Play();
+        aud.PlayDestroy();
+        this.gameObject.transform.localScale = Vector3.Lerp(this.gameObject.transform.localScale, new Vector3(0.01f, 0.01f), 2f);
+        yield return new WaitForSeconds(0.5f);
+        Destroy(this.gameObject);
+    }
+    
 
     //Uses bullet velocity to know which way to move
     IEnumerator MoveOnHit(Vector2 bulletVelocity)
