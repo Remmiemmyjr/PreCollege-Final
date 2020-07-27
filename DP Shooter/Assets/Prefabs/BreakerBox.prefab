@@ -123,3 +123,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   classification: 3
   boxDistanceModifier: 75
+  fxSize: 15
+  startColor: {r: 0.67058825, g: 0.9372549, b: 0.9607843, a: 1}
+  endColor: {r: 1, g: 1, b: 1, a: 0}
