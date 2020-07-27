@@ -198,6 +198,16 @@ PrefabInstance:
       propertyPath: playerScale
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 7092882577786175025, guid: 71961839206a1a84596b2947964bbb3f,
+        type: 3}
+      propertyPath: canShoot
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7092882577786175025, guid: 71961839206a1a84596b2947964bbb3f,
+        type: 3}
+      propertyPath: playerSpeed
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 7092882577786175027, guid: 71961839206a1a84596b2947964bbb3f,
         type: 3}
       propertyPath: m_Name
