@@ -155,10 +155,12 @@ MonoBehaviour:
   ripplefx: {fileID: 9051808096383162014}
   shoot: {fileID: 8300000, guid: c020bed1d2113564abbd0b5f32fa2f25, type: 3}
   playerSpeed: 8.25
+  playerScale: 0.5
   Bullet: {fileID: 7294722043248330415, guid: 9393c883fa9e7bb44b671f7d0dd949e1, type: 3}
   bulletOrigin: {fileID: 7092882576741891572}
   shootSpeed: 20
   cooldown: 0.5
+  canShoot: 1
 --- !u!82 &7092882577786175024
 AudioSource:
   m_ObjectHideFlags: 0
@@ -287,7 +289,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.8110523, y: -0.20563263}
+  m_Offset: {x: -0.13, y: -0.20563263}
   m_Size: {x: 1.8578953, y: 3.4619005}
   m_Direction: 0
 --- !u!1 &9051808096383162014
@@ -361,7 +363,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b2abf8e0c73371c418c3e8c81bb4f908, type: 3}
-  m_Color: {r: 0.6717693, g: 0.93578523, b: 0.9622642, a: 1}
+  m_Color: {r: 1, g: 0.32887805, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

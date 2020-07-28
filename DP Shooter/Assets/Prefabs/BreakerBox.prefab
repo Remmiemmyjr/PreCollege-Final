@@ -126,8 +126,8 @@ MonoBehaviour:
   classification: 3
   boxDistanceModifier: 75
   fxSize: 10
-  startColor: {r: 0.67058825, g: 0.9372549, b: 0.9607843, a: 1}
-  endColor: {r: 0.3773585, g: 0.93073714, b: 1, a: 0.3019608}
+  startColor: {r: 1, g: 0.066037714, b: 0.16260073, a: 1}
+  endColor: {r: 1, g: 0.009951273, b: 0, a: 0.5058824}
   destroyParticle: {fileID: 0}
 --- !u!114 &1018256719533228082
 MonoBehaviour:

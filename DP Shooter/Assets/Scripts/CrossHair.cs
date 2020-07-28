@@ -14,11 +14,16 @@ public class CrossHair : MonoBehaviour
 
     void Update()
     {
-        float distance = transform.position.z + Camera.main.transform.position.z;
-        targetPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance);
-        targetPos = Camera.main.ScreenToWorldPoint(targetPos);
+        //float distance = transform.position.z + Camera.main.transform.position.z;
+        //targetPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance);
+        //targetPos = Camera.main.ScreenToWorldPoint(targetPos);
 
-        Vector3 followXonly = new Vector3(targetPos.x, targetPos.y, transform.position.z);
-        transform.position = Vector3.Lerp(transform.position, followXonly, speed * Time.deltaTime);
+        //Vector3 followXonly = new Vector3(targetPos.x, targetPos.y, transform.position.z);
+        //transform.position = Vector3.Lerp(transform.position, followXonly, speed * Time.deltaTime);
+
+        targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        targetPos.z = transform.position.z;
+
+        transform.position = targetPos;
     }
 }
