@@ -9,6 +9,7 @@ TagManager:
   - MoveBox
   - Enemy
   - Shader
+  - music
   layers:
   - Default
   - TransparentFX
