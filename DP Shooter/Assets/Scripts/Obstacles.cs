@@ -46,6 +46,8 @@ public class Obstacles : MonoBehaviour
 
     public ParticleSystem destroyParticle;
 
+    public ParticleSystem teleportParticle;
+
     private void Start()
     {
         if(classification == ObjectType.Moveable)
@@ -183,6 +185,7 @@ public class Obstacles : MonoBehaviour
         //The player is teleported after the ripple plays outward
         newPos.z = PlayerController.Player.transform.position.z; 
         PlayerController.Player.transform.position = newPos;
+        teleportParticle.Play();
 
         //The ripple plays in reverse
         timer = 0f;
