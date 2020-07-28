@@ -17,10 +17,12 @@ destroyed on the next collision it makes
 public class BulletBehavior : MonoBehaviour
 {
     int count;
+    public Color color = Color.blue;
+    public SpriteRenderer sr;
 
     void Start()
     {
-
+        sr = this.gameObject.GetComponent<SpriteRenderer>();
     }
 
     
@@ -33,6 +35,7 @@ public class BulletBehavior : MonoBehaviour
     {
         if (collision.gameObject.tag == "Wall" || collision.gameObject.tag == "Door")
         {
+            sr.color = color;
             if (count++ >= 1)
             {
                 Destroy(this.gameObject);
