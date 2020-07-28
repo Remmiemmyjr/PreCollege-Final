@@ -284,7 +284,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.26
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -606,7 +606,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 5
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -746,7 +746,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 0.02
       mode: 0
       spread: 0
       speed:
@@ -4884,6 +4884,7 @@ MonoBehaviour:
   startColor: {r: 0, g: 0, b: 1, a: 1}
   endColor: {r: 1, g: 1, b: 1, a: 1}
   destroyParticle: {fileID: 7813131663952167527}
+  teleportParticle: {fileID: 0}
 --- !u!114 &2193894318052441160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4896,7 +4897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bfb8717ba4e6d44691fb007f671e7ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shoot: {fileID: 0}
+  teleport: {fileID: 0}
   destroy: {fileID: 8300000, guid: bd1a703fc28f3c8459f216cac5320b31, type: 3}
 --- !u!82 &-474012298235957571
 AudioSource:
