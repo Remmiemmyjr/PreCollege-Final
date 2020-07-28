@@ -5,7 +5,7 @@ using UnityEngine;
 public class CrossHair : MonoBehaviour
 {
     private Vector3 targetPos;
-    public float speed = 20f;
+    //public float speed = 20f;
 
     void Start()
     {

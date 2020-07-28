@@ -195,7 +195,8 @@ public class PlayerController : MonoBehaviour
     void SetFaceDir(facingDir facing, bool moving)
     {
         ani.SetBool("Side", facing == facingDir.left || facing == facingDir.right);
-        ani.SetBool("Up", facing == facingDir.up || facing == facingDir.down);
+        ani.SetBool("Up", facing == facingDir.up);
+        ani.SetBool("Down",  facing == facingDir.down);
         ani.SetBool("IsMoving", moving);
         Debug.Log($"{facing}, {moving}");
 
