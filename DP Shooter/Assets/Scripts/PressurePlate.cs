@@ -18,6 +18,9 @@ objects have the ability to trigger plates
 
 public class PressurePlate : MonoBehaviour
 {
+    public Sprite on;
+    public Sprite off;
+
     public GameObject Door;
     GameObject Player;
     GameObject Box;
@@ -30,6 +33,7 @@ public class PressurePlate : MonoBehaviour
     //Start is called before the first frame update
     void Start()
     {
+        this.GetComponent<SpriteRenderer>().sprite = off;
         Player = GameObject.FindGameObjectWithTag("Player");
         Box = GameObject.FindGameObjectWithTag("MoveBox");
         doorScript = Door.GetComponent<Door>();
@@ -71,6 +75,7 @@ public class PressurePlate : MonoBehaviour
     //Somethings on the plate
     void PlateActive()
     {
+        this.GetComponent<SpriteRenderer>().sprite = on;
         isPressed = true;
         doorScript.PressurePlateChanged();
     }
@@ -78,6 +83,7 @@ public class PressurePlate : MonoBehaviour
     //Nothing on the plate
     void PlateNotActive()
     {
+        this.GetComponent<SpriteRenderer>().sprite = off;
         isPressed = false;
         doorScript.PressurePlateChanged();
     }
