@@ -91,11 +91,10 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && canShoot)
         {
             Shoot();
-            //FindObjectOfType<Cinemachine.CinemachineImpulseSource>();
+            
             FindObjectOfType<Cinemachine.CinemachineImpulseSource>().GenerateImpulse();
-            Debug.Log(FindObjectOfType<Cinemachine.CinemachineImpulseSource>().name);
-
-
+            //Debug.Log(FindObjectOfType<Cinemachine.CinemachineImpulseSource>().name);
+            //FindObjectOfType<Cinemachine.CinemachineImpulseSource>();
             //GameObject.Find("CM vcam1").GetComponent<Cinemachine.CinemachineImpulseSource>().GenerateImpulse();
         }
 
