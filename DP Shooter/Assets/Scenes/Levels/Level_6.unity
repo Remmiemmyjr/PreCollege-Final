@@ -2507,7 +2507,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: -6.9870005, z: 90.00001}
---- !u!84 &1055282663
+--- !u!84 &1012476405
 RenderTexture:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2786,7 +2786,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 1055282663}
+  m_TargetTexture: {fileID: 1012476405}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -3087,12 +3087,12 @@ PrefabInstance:
     - target: {fileID: 5662398470022588939, guid: 858bc88ebc5251d46b963e16d5663af9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.509208
+      value: 1.47
       objectReference: {fileID: 0}
     - target: {fileID: 5662398470022588939, guid: 858bc88ebc5251d46b963e16d5663af9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.001194
+      value: -0.23
       objectReference: {fileID: 0}
     - target: {fileID: 5662398470022588939, guid: 858bc88ebc5251d46b963e16d5663af9,
         type: 3}
@@ -3814,7 +3814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bfb8717ba4e6d44691fb007f671e7ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shoot: {fileID: 0}
+  teleport: {fileID: 0}
   destroy: {fileID: 8300000, guid: bd1a703fc28f3c8459f216cac5320b31, type: 3}
 --- !u!1 &2034126025
 GameObject:
