@@ -64,7 +64,8 @@ public class PlayerController : MonoBehaviour
     //Check to shoot
     public bool canShoot = true;
 
-    
+
+
 
     void Start()
     {
@@ -77,6 +78,8 @@ public class PlayerController : MonoBehaviour
         aud.clip = shoot;
 
         ani = GetComponent<Animator>();
+
+
     }
 
     void Update()
@@ -88,6 +91,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && canShoot)
         {
             Shoot();
+            //FindObjectOfType<Cinemachine.CinemachineImpulseSource>();
+            FindObjectOfType<Cinemachine.CinemachineImpulseSource>().GenerateImpulse();
+            Debug.Log(FindObjectOfType<Cinemachine.CinemachineImpulseSource>().name);
+
+
+            //GameObject.Find("CM vcam1").GetComponent<Cinemachine.CinemachineImpulseSource>().GenerateImpulse();
         }
 
         FacingCursor();
@@ -107,6 +116,7 @@ public class PlayerController : MonoBehaviour
             firedBullet.GetComponent<Rigidbody2D>().velocity = bulletDirection.normalized * shootSpeed;
 
             aud.Play();
+
             
             canShoot = false;
             StartCoroutine(ShootCoolDown());
