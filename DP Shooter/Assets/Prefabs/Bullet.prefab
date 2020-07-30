@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2934079915881170672
 Transform:
   m_ObjectHideFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 3921010682187261458}
   m_LocalRotation: {x: -0.70678586, y: -0.00035817982, z: 0.000358505, w: 0.7074275}
   m_LocalPosition: {x: -0, y: 0.4, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.2, z: 1.4799963}
+  m_LocalScale: {x: 1, y: 1, z: 1.4799963}
   m_Children: []
   m_Father: {fileID: 8199686622341299380}
   m_RootOrder: 0
@@ -115,7 +115,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.15
+      scalar: 0.1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -284,7 +284,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.4
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -1303,7 +1303,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.8301887, g: 0.28458554, b: 0.039159838, a: 1}
+        key0: {r: 0.03921568, g: 0.83137256, b: 0.7757345, a: 1}
         key1: {r: 1, g: 1, b: 1, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -4825,7 +4825,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.5
+  m_Time: 0.3
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -4834,7 +4834,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.5492954
+        value: 0.19718361
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -4842,7 +4842,7 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.96703297
+        time: 1
         value: 0
         inSlope: 0
         outSlope: 0
@@ -4968,7 +4968,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6d76e8064c2c26d40aa47e797205a890, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6536134, g: 0.9622642, b: 0.8158342, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5027,7 +5027,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ede1272e3b8be794d8625584d8f1a3cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
+  color: {r: 0.37656558, g: 0.4339623, b: 0.36845854, a: 1}
+  deadColor: {r: 0.13616948, g: 0.16037738, b: 0.13655832, a: 1}
   sr: {fileID: 0}
   destroyParticle: {fileID: 4569621094012536805}
 --- !u!95 &-2747833261494900466
