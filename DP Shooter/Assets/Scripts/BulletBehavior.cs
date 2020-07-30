@@ -19,18 +19,14 @@ public class BulletBehavior : MonoBehaviour
     int count;
     public Color color = Color.blue;
     public SpriteRenderer sr;
+    Animator ani;
 
     void Start()
     {
         sr = this.gameObject.GetComponent<SpriteRenderer>();
+        ani = GetComponent<Animator>();
     }
-
     
-    void Update()
-    {
-
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Wall" || collision.gameObject.tag == "Door")
@@ -38,8 +34,17 @@ public class BulletBehavior : MonoBehaviour
             sr.color = color;
             if (count++ >= 1)
             {
-                Destroy(this.gameObject);
+                StartCoroutine(BulletKiller());
+                
             }
         }
+    }
+
+    private IEnumerator BulletKiller()
+    {
+        ani.SetBool("Died", true);
+        this.gameObject.transform.localScale = Vector3.Lerp(this.gameObject.transform.localScale, new Vector3(0.01f, 0.01f), 2f);
+        yield return new WaitForSeconds(0.5f);
+        Destroy(this.gameObject);
     }
 }
