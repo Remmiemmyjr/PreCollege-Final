@@ -2779,7 +2779,7 @@ PrefabInstance:
     - target: {fileID: 6034369727130289018, guid: e07875c5f53b7e14393ef84f0312e247,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.8241444
+      value: 6.8
       objectReference: {fileID: 0}
     - target: {fileID: 6034369727130289018, guid: e07875c5f53b7e14393ef84f0312e247,
         type: 3}
@@ -2834,12 +2834,12 @@ PrefabInstance:
     - target: {fileID: 6034369727130289018, guid: e07875c5f53b7e14393ef84f0312e247,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.125
+      value: 0.37
       objectReference: {fileID: 0}
     - target: {fileID: 6034369727130289018, guid: e07875c5f53b7e14393ef84f0312e247,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.125
+      value: 0.37
       objectReference: {fileID: 0}
     - target: {fileID: 6034369727130289019, guid: e07875c5f53b7e14393ef84f0312e247,
         type: 3}
@@ -3339,12 +3339,12 @@ PrefabInstance:
     - target: {fileID: 6034369727130289018, guid: e07875c5f53b7e14393ef84f0312e247,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.125
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6034369727130289018, guid: e07875c5f53b7e14393ef84f0312e247,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.125
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6034369727130289019, guid: e07875c5f53b7e14393ef84f0312e247,
         type: 3}
@@ -3699,12 +3699,12 @@ PrefabInstance:
     - target: {fileID: 6034369727130289018, guid: e07875c5f53b7e14393ef84f0312e247,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.125
+      value: 0.37
       objectReference: {fileID: 0}
     - target: {fileID: 6034369727130289018, guid: e07875c5f53b7e14393ef84f0312e247,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.125
+      value: 0.37
       objectReference: {fileID: 0}
     - target: {fileID: 6034369727130289019, guid: e07875c5f53b7e14393ef84f0312e247,
         type: 3}
