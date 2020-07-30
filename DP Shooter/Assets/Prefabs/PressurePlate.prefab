@@ -164,7 +164,7 @@ MonoBehaviour:
   teleport: {fileID: 0}
   destroy: {fileID: 0}
   movebox: {fileID: 0}
-  activated: {fileID: 0}
+  activated: {fileID: 8300000, guid: b519d25bd6cc3014680f0976dcf4d7fa, type: 3}
 --- !u!82 &-8645901407109107866
 AudioSource:
   m_ObjectHideFlags: 0
