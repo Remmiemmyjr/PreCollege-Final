@@ -5,9 +5,12 @@ using UnityEngine;
 public class Audio : MonoBehaviour
 {
     public AudioClip teleport;
-    //public AudioClip teleport;
+
     public AudioClip destroy;
-    //public AudioClip died;
+
+    public AudioClip movebox;
+
+    public AudioClip activated;
 
     private AudioSource source;
 
@@ -29,12 +32,18 @@ public class Audio : MonoBehaviour
         source.Play();
     }
 
-    //public void PlayDied()
-    //{
-    //    source.clip = died;
-    //    source.Play();
-    //}
+    public void PlayMoveBox()
+    {
+        source.pitch = Random.Range(0.5f, 1.75f);
+        source.clip = movebox;
+        source.Play();
+    }
 
+    public void PlayActivated()
+    {
+        source.clip = activated;
+        source.Play();
+    }
 
 }
 

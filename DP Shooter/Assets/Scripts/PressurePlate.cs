@@ -21,12 +21,15 @@ public class PressurePlate : MonoBehaviour
     public Sprite on;
     public Sprite off;
 
+    private List<GameObject> triggerEntities = new List<GameObject>();
     public GameObject Door;
     GameObject Player;
     GameObject Box;
+
     Door doorScript;
+    Audio aud;
+
     public bool isPressed;
-    private List<GameObject> triggerEntities = new List<GameObject>();
    
     int entitiesNeeded = 1;
 
@@ -34,10 +37,16 @@ public class PressurePlate : MonoBehaviour
     void Start()
     {
         this.GetComponent<SpriteRenderer>().sprite = off;
+
         Player = GameObject.FindGameObjectWithTag("Player");
+
         Box = GameObject.FindGameObjectWithTag("MoveBox");
+
         doorScript = Door.GetComponent<Door>();
+
         entitiesNeeded = doorScript.pressurePlates.Length;
+
+        aud = GetComponent<Audio>();
     }
 
     // Update is called once per frame
@@ -75,6 +84,7 @@ public class PressurePlate : MonoBehaviour
     //Somethings on the plate
     void PlateActive()
     {
+        aud.PlayActivated();
         this.GetComponent<SpriteRenderer>().sprite = on;
         isPressed = true;
         doorScript.PressurePlateChanged();

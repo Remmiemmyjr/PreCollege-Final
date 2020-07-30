@@ -65,8 +65,6 @@ public class PlayerController : MonoBehaviour
     public bool canShoot = true;
 
 
-
-
     void Start()
     {
         Cursor.visible = false;
@@ -75,11 +73,11 @@ public class PlayerController : MonoBehaviour
         playerScript = this;
 
         aud = GetComponent<AudioSource>();
+        aud.pitch = Random.Range(0.5f, 1.75f);
         aud.clip = shoot;
-
+    
         ani = GetComponent<Animator>();
-
-
+        
     }
 
     void Update()
@@ -138,25 +136,24 @@ public class PlayerController : MonoBehaviour
 
         if (facingDirection.x > 0 && Mathf.Abs(facingDirection.x) > Mathf.Abs(facingDirection.y))
         {
-            SetFaceDir(facingDir.right, false);
+            SetFaceDir(FacingDir.right, false);
         }
         if (facingDirection.x < 0 && Mathf.Abs(facingDirection.x) > Mathf.Abs(facingDirection.y))
         {
-            SetFaceDir(facingDir.left, false);
+            SetFaceDir(FacingDir.left, false);
         }
         if (facingDirection.y > 0 && Mathf.Abs(facingDirection.x) < Mathf.Abs(facingDirection.y))
         {
-            SetFaceDir(facingDir.up, false);
+            SetFaceDir(FacingDir.up, false);
         }
         if (facingDirection.y < 0 && Mathf.Abs(facingDirection.x) < Mathf.Abs(facingDirection.y))
         {
-            SetFaceDir(facingDir.down, false);
+            SetFaceDir(FacingDir.down, false);
         }
     }
 
     void Movement()
     {
-
         bool didGetInput = false;
         //Changed the transform.position to a velocity so we can acknowledge colliders , transform disreguards any colliders 
         Vector3 pos = new Vector3();
@@ -165,27 +162,27 @@ public class PlayerController : MonoBehaviour
         {
             pos.y += 1;
             didGetInput = true;
-            SetFaceDir(facingDir.up, true);
+            SetFaceDir(FacingDir.up, true);
         }
         if (Input.GetKey(KeyCode.S)) //DOWN
         {
             pos.y -= 1;
             didGetInput = true;
-            SetFaceDir(facingDir.down, true);
+            SetFaceDir(FacingDir.down, true);
         }
         if (Input.GetKey(KeyCode.D)) //RIGHT
         {
             pos.x += 1;
             
             didGetInput = true;
-            SetFaceDir(facingDir.right, true);
+            SetFaceDir(FacingDir.right, true);
         }
         if (Input.GetKey(KeyCode.A)) //LEFT
         {
             pos.x -= 1;
            
             didGetInput = true;
-            SetFaceDir(facingDir.left, true);
+            SetFaceDir(FacingDir.left, true);
         }
         
         //Uses normalized vector to maintain constant speed in all directions
@@ -196,23 +193,21 @@ public class PlayerController : MonoBehaviour
             //SetFaceDir(facingDir.none, false);
             ani.SetBool("IsMoving", false);
         }
-
     }
 
-    enum facingDir { right, left, up, down, none }
+    enum FacingDir { right, left, up, down, none }
 
-    void SetFaceDir(facingDir facing, bool moving)
+    void SetFaceDir(FacingDir facing, bool moving)
     {
-        ani.SetBool("Side", facing == facingDir.left || facing == facingDir.right);
-        ani.SetBool("Up", facing == facingDir.up);
-        ani.SetBool("Down",  facing == facingDir.down);
+        ani.SetBool("Side", facing == FacingDir.left || facing == FacingDir.right);
+        ani.SetBool("Up", facing == FacingDir.up);
+        ani.SetBool("Down",  facing == FacingDir.down);
         ani.SetBool("IsMoving", moving);
         Debug.Log($"{facing}, {moving}");
 
-        if(facing == facingDir.left)
+        if(facing == FacingDir.left)
             transform.localScale = new Vector2(-playerScale, playerScale);
         else
             transform.localScale = new Vector2(playerScale, playerScale);
-
     }
 }
