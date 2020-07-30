@@ -430,12 +430,12 @@ PrefabInstance:
     - target: {fileID: 5662398470022588939, guid: 858bc88ebc5251d46b963e16d5663af9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.2028243
+      value: -13.75
       objectReference: {fileID: 0}
     - target: {fileID: 5662398470022588939, guid: 858bc88ebc5251d46b963e16d5663af9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.8077813
+      value: -8.23
       objectReference: {fileID: 0}
     - target: {fileID: 5662398470022588939, guid: 858bc88ebc5251d46b963e16d5663af9,
         type: 3}
@@ -800,7 +800,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 1066642273}
+  m_TargetTexture: {fileID: 1030873265}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -903,7 +903,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d7c54b9e8f6c7c4f83b18cd6282b765, type: 3}
---- !u!84 &1066642273
+--- !u!84 &1030873265
 RenderTexture:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
