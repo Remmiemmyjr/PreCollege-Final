@@ -80,11 +80,9 @@ public class Obstacles : MonoBehaviour
                 case ObjectType.Destructable:
                     //Bullet destroys the box
                     {
-                        StartCoroutine(WaitToDestroy());
-                        
+                        StartCoroutine(DestroyCrate());
                         break;
                     }
-
 
                 case ObjectType.Indestructable:
                     //Nothing happens
@@ -92,10 +90,10 @@ public class Obstacles : MonoBehaviour
                         break;
                     }
 
-
                 case ObjectType.Moveable:
                     //Box's position is transformed based off bullets vel
                     {
+                        aud.PlayMoveBox();
                         StartCoroutine(MoveOnHit(impactVelocity));
                         Debug.Log($"{impactVelocity}");
                         break;
@@ -115,7 +113,6 @@ public class Obstacles : MonoBehaviour
                         aud.PlayTeleport();
                         break;
                     }
-                    
             }
 
             Destroy(collision.gameObject);
@@ -133,7 +130,7 @@ public class Obstacles : MonoBehaviour
     //NOTE FOR EMMY: Co-Routines run parallel to the main loop, meaning that this code begins when declared and runs while the rest of the code is running from then on.
 
 
-    IEnumerator WaitToDestroy()
+    IEnumerator DestroyCrate()
     {
         destroyParticle.Play();
         aud.PlayDestroy();
@@ -144,6 +141,7 @@ public class Obstacles : MonoBehaviour
     
 
     //Uses bullet velocity to know which way to move
+
     IEnumerator MoveOnHit(Vector2 bulletVelocity)
     {
         Rigidbody2D moveRB = gameObject.GetComponent<Rigidbody2D>();
@@ -162,6 +160,7 @@ public class Obstacles : MonoBehaviour
     }
 
     //Teleports player, and plays ripple fx
+
     IEnumerator TeleportFX(Vector3 newPos)
     {
         float timer = 0.0f;
@@ -197,8 +196,6 @@ public class Obstacles : MonoBehaviour
             ripplefx.transform.localScale = Vector3.Lerp(endScale, startScale, t);
             yield return null;
         }
-
-
         yield return null;
     }
                     
