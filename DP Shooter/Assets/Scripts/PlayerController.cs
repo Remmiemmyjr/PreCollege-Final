@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
         playerScript = this;
 
         aud = GetComponent<AudioSource>();
-        aud.pitch = Random.Range(0.5f, 1.75f);
+        
         aud.clip = shoot;
     
         ani = GetComponent<Animator>();
@@ -112,6 +112,7 @@ public class PlayerController : MonoBehaviour
             GameObject firedBullet = Instantiate(Bullet, bulletOrigin.position, bulletOrigin.rotation);
             firedBullet.GetComponent<Rigidbody2D>().velocity = bulletDirection.normalized * shootSpeed;
 
+            aud.pitch = Random.Range(0.8f, 1.2f);
             aud.Play();
 
             
