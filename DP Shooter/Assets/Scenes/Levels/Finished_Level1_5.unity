@@ -788,7 +788,7 @@ PrefabInstance:
     - target: {fileID: 6034369727130289018, guid: e07875c5f53b7e14393ef84f0312e247,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.143264
+      value: -5.39
       objectReference: {fileID: 0}
     - target: {fileID: 6034369727130289018, guid: e07875c5f53b7e14393ef84f0312e247,
         type: 3}
@@ -927,7 +927,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 1673992824}
+  m_TargetTexture: {fileID: 1446740586}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -1371,7 +1371,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1376861469}
   m_LocalRotation: {x: -0.008740641, y: 0.0023442921, z: 0.0051480457, w: 0.9999458}
-  m_LocalPosition: {x: -3.163264, y: -0.9487361, z: 4.88}
+  m_LocalPosition: {x: -5.35, y: -0.9487361, z: 4.88}
   m_LocalScale: {x: 0.20000003, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 709923353}
@@ -1467,19 +1467,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1439190680}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1496884355 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6034369727130289012, guid: e07875c5f53b7e14393ef84f0312e247,
-    type: 3}
-  m_PrefabInstance: {fileID: 791101760}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1660166347 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3362753950131313138, guid: 67b15bc837de6ab478a5b99de7cdc4e6,
-    type: 3}
-  m_PrefabInstance: {fileID: 1232372098}
-  m_PrefabAsset: {fileID: 0}
---- !u!84 &1673992824
+--- !u!84 &1446740586
 RenderTexture:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1514,6 +1502,18 @@ RenderTexture:
     m_WrapW: 1
   m_Dimension: 2
   m_VolumeDepth: 1
+--- !u!1 &1496884355 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6034369727130289012, guid: e07875c5f53b7e14393ef84f0312e247,
+    type: 3}
+  m_PrefabInstance: {fileID: 791101760}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1660166347 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3362753950131313138, guid: 67b15bc837de6ab478a5b99de7cdc4e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1232372098}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1694932375
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1524,7 +1524,7 @@ PrefabInstance:
     - target: {fileID: 7092882577786175021, guid: 71961839206a1a84596b2947964bbb3f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.83
+      value: -6.06
       objectReference: {fileID: 0}
     - target: {fileID: 7092882577786175021, guid: 71961839206a1a84596b2947964bbb3f,
         type: 3}
