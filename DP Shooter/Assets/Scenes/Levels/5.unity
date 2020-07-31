@@ -121,6 +121,41 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!84 &261257667
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 450
+  m_Height: 285
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 1
+  m_ColorFormat: 8
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &336561037
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1783,41 +1818,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1611560382}
   m_PrefabAsset: {fileID: 0}
---- !u!84 &1887144246
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 450
-  m_Height: 285
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 1
-  m_ColorFormat: 8
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1967962407
 GameObject:
   m_ObjectHideFlags: 0
@@ -1916,7 +1916,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 1887144246}
+  m_TargetTexture: {fileID: 261257667}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -2169,12 +2169,12 @@ PrefabInstance:
     - target: {fileID: 6892507640361204396, guid: 3c5fdda398c22f84bbf41af6148b4b3c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.62
+      value: 5.8
       objectReference: {fileID: 0}
     - target: {fileID: 6892507640361204396, guid: 3c5fdda398c22f84bbf41af6148b4b3c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.6
+      value: 1.33
       objectReference: {fileID: 0}
     - target: {fileID: 6892507640361204396, guid: 3c5fdda398c22f84bbf41af6148b4b3c,
         type: 3}
