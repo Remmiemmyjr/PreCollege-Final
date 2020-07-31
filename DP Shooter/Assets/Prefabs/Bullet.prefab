@@ -4855,7 +4855,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.6981132, g: 1, b: 0.86102605, a: 1}
+      key0: {r: 0, g: 0.74509805, b: 0.8745099, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -4968,7 +4968,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6d76e8064c2c26d40aa47e797205a890, type: 3}
-  m_Color: {r: 0.6201495, g: 0.9811321, b: 0.8196495, a: 1}
+  m_Color: {r: 0, g: 0.84967804, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5027,7 +5027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ede1272e3b8be794d8625584d8f1a3cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 0.37656558, g: 0.4339623, b: 0.36845854, a: 1}
+  color: {r: 0.24563903, g: 0.67885435, b: 0.754717, a: 1}
   deadColor: {r: 0.13616948, g: 0.16037738, b: 0.13655832, a: 1}
   sr: {fileID: 0}
   destroyParticle: {fileID: 4569621094012536805}
