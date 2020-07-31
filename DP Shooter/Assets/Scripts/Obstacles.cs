@@ -48,6 +48,8 @@ public class Obstacles : MonoBehaviour
 
     public ParticleSystem teleportParticle;
 
+    public ParticleSystem moveParticle;
+
     private void Start()
     {
         if(classification == ObjectType.Moveable)
@@ -94,6 +96,7 @@ public class Obstacles : MonoBehaviour
                     //Box's position is transformed based off bullets vel
                     {
                         aud.PlayMoveBox();
+                        moveParticle.Play();
                         StartCoroutine(MoveOnHit(impactVelocity));
                         Debug.Log($"{impactVelocity}");
                         break;
